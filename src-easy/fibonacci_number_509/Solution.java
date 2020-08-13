@@ -21,7 +21,7 @@ public class Solution {
 	
 	// iterative / bottom up
 	// T(n) = O(n)
-	public int fib2(int N) {
+	public int fib(int N) {
 		if(N == 0)
             return 0;
         else if(N == 1)
@@ -52,7 +52,7 @@ public class Solution {
 	
 	// memoize
 	// T(n) = O(n)
-	public int fib(int N) {
+	public int fib2(int N) {
 		if(N == 0)
             return 0;
 		int[] memo = new int[N+1];
