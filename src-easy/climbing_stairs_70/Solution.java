@@ -12,6 +12,7 @@ public class Solution {
 		System.out.println(solution.climbStairs(3));
 		System.out.println(solution.climbStairs(4));
 		System.out.println(solution.climbStairs(12));
+		System.out.println(solution.climbStairs(45));
 	}
 	
 	// iterative / bottom up
