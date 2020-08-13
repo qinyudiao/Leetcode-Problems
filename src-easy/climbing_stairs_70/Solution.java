@@ -23,12 +23,12 @@ public class Solution {
             return 2;
 		
 		int result = 0;
-		int lastOne = 1;
-		int lastTwo = 2;
+		int lastTwo = 1;
+		int lastOne = 2;
 		for(int i = 2; i < n; i++) {
 			result = lastOne + lastTwo;
-			lastOne = lastTwo;
-			lastTwo = result;
+			lastTwo = lastOne;
+			lastOne = result;
 		}
 		
         return result;

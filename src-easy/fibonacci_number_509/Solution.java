@@ -28,12 +28,12 @@ public class Solution {
             return 1;
 		
 		int result = 0;
-		int lastOne = 0;
-		int lastTwo = 1;
+		int lastTwo = 0;
+		int lastOne = 1;
 		for(int i = 1; i < N; i++) {
 			result = lastOne + lastTwo;
-			lastOne = lastTwo;
-			lastTwo = result;
+			lastTwo = lastOne;
+			lastOne = result;
 		}
 		
         return result;
