@@ -54,3 +54,6 @@ public class Solution {
 		return largest;
 	}
 }
+
+//	Runtime: 1 ms, faster than 99.23% of Java online submissions for Max Increase to Keep City Skyline.
+//	Memory Usage: 39.7 MB, less than 40.37% of Java online submissions for Max Increase to Keep City Skyline.
