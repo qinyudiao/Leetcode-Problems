@@ -1,6 +1,5 @@
 package roman_to_integer_13;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 //	Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
