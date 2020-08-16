@@ -41,7 +41,7 @@ public class Solution {
             return 0;
         
         int[][] steps = new int[n][n]; // stores the steps(substring.startIndex, substring.endIndex-1)
-        int[][] dp = new int[n][k]; // stores the minimal number for each substring with each k + 1
+        int[][] dp = new int[n][k]; // stores the minimal number for each substring starts with 0, and with length = n +1, number of subtrings can be divided into = k + 1
         
         for(int j = 1; j < n; j++) { // starts with j = 1 because length 1 string is palindrome => steps[0][0] == 0
             for(int i = 0; i <= j - 1; i++) { // ends with i = j - 1 beacause steps[i][j] == 0 when i == j
@@ -59,7 +59,7 @@ public class Solution {
             for(int j = l; j < n; j++) { // j is substring.endIndex-1
                 int min = Integer.MAX_VALUE;
                 for(int i = 0; i <= j - 1; i++) { // i is substring.startIndex
-                    min = Math.min(min, dp[i][l-1] + steps[i+1][j]);
+                    min = Math.min(min, dp[i][l-1] + steps[i+1][j]); // for string starts wth n = 3 and k = 3, dp[2][2] = min((dp[0][1] + steps[1][2]), (dp[1][1] + steps[2][2]))
                 }
                 dp[j][l] = min;
             }
