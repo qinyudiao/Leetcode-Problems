@@ -2,6 +2,8 @@ package linked_list_random_node_382;
 
 import java.util.Random;
 
+import utilities.ListNode;
+
 //	Given a singly linked list, 
 //	return a random node's value from the linked list. 
 //	Each node must have the same probability of being chosen.
