@@ -24,10 +24,10 @@ public class Solution {
 //			System.out.print("i: " + i + " ");
 //			System.out.print("offset: " + offset + " ");
 			if(A[i-offset] % 2 != 0) { // if current number is odd, switch with the rightmost number that has not been switched yet
+				int temp = A[i-offset];
+				A[i-offset] = A[n];
 				if(A[n] % 2 != 0) // if switched number is also odd, add offset to switch it again
 					offset++;
-				int temp = A[i-offset]; 
-				A[i-offset] = A[n];
 				A[n] = temp;
 				n--; // update the index of the rightmost number that has not been switched yet
 			}
