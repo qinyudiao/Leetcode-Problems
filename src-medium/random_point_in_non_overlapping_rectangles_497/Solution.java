@@ -91,4 +91,3 @@ public class Solution {
 
 //	Runtime: 60 ms, faster than 64.74% of Java online submissions for Random Point in Non-overlapping Rectangles.
 //	Memory Usage: 45.9 MB, less than 76.29% of Java online submissions for Random Point in Non-overlapping Rectangles.
-
