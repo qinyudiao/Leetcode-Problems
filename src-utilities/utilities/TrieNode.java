@@ -2,6 +2,9 @@ package utilities;
 
 import java.util.HashMap;
 
+// Use String[26] instead of HashMap to store children will be faster, but potentially consumes more memory.
+// Avoid using getters and setters will make it faster as well.
+
 public class TrieNode {
 	
     private HashMap<Character, TrieNode> children;
