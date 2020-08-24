@@ -70,7 +70,7 @@ public class Solution {
 			HashMap<Character, TrieNode> children = curr.getChildren();
 			for(char c : children.keySet()) {
 				if(children.get(c).isCompleteWord())
-				queue.add(children.get(c));
+					queue.add(children.get(c));
 			}
 		}
 		
