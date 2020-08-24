@@ -9,4 +9,8 @@ public class TrieNodeFast {
     	children = new TrieNodeFast[26];
     	isCompleteWord = false;
     }
+    
+	public String toString() {
+        return children.toString();
+    }
 }
