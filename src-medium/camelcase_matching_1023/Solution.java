@@ -42,6 +42,7 @@ public class Solution {
 		System.out.println(solution.camelMatch(queries2, pattern4)); // [false, false, true]
 	}
 
+	// O(m*n), where m is the number of queries, n is the max length of a query
     public List<Boolean> camelMatch(String[] queries, String pattern) {
         List<Boolean> result = new ArrayList<>();
         
@@ -66,7 +67,7 @@ public class Solution {
     
 //    Runtime: 0 ms, faster than 100.00% of Java online submissions for Camelcase Matching.
 //    Memory Usage: 37.2 MB, less than 94.81% of Java online submissions for Camelcase Matching.
-    
+
 	// use Trie structure, works but slow because the HashSet children is not optimal
 	public List<Boolean> camelMatch1(String[] queries, String pattern) {
 		List<Boolean> result = new ArrayList<>();
