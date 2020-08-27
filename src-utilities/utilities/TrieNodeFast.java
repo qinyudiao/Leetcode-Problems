@@ -5,7 +5,7 @@ public class TrieNodeFast {
     public TrieNodeFast[] children; 
     public boolean isCompleteWord;
     
-    TrieNodeFast() {
+    public TrieNodeFast() {
     	children = new TrieNodeFast[26];
     	isCompleteWord = false;
     }
