@@ -16,7 +16,6 @@ public class Solution {
 		for(int i = 0; i < testCasesNums.length; i++) {
 			System.out.println(solution.containsNearbyDuplicate(testCasesNums[i], testCasesK[i]));
 		}
-
 	}
 
 	public boolean containsNearbyDuplicate(int[] nums, int k) {
