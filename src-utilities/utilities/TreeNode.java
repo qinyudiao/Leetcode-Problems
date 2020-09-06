@@ -21,6 +21,29 @@ public class TreeNode {
     	this.right = right;
     }
     
+    public List<Integer> extractValues() {
+    	List<Integer> result = new ArrayList<>();
+        if(this.left != null)
+        	extractValues(this.left, result);
+
+        result.add(this.val);
+        
+        if(this.right != null)
+        	extractValues(this.right, result);
+
+        return result;
+    }
+    
+    public static void extractValues(TreeNode root, List<Integer> list) {
+        if(root.left != null)
+            extractValues(root.left, list);
+
+        list.add(root.val);
+        
+        if(root.right != null)
+            extractValues(root.right, list);
+    }
+    
     public String deepToString() {
     	List<Integer> vals = new ArrayList<>();
     	
