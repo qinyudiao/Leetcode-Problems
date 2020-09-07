@@ -20,7 +20,7 @@ public class Solution {
 		}
 	}
 	
-//	T(n): O(log(n). There are roughly log10(n) digits in n.	
+//	T(n): O(log(n)). There are roughly log10(n) digits in n.	
 	public int reverse(int x) {
 		long result = 0;
 		
