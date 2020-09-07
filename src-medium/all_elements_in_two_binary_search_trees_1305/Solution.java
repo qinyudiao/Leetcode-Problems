@@ -60,7 +60,7 @@ public class Solution {
 			TreeNode.extractValues(root1, result);
 		if(root2 != null)
 			TreeNode.extractValues(root2, result);
-		Collections.sort(result); // Timsort has a O(n) runtime in this case.
+		Collections.sort(result); // Timsort has a O(n) runtime in this case because only one iteration of insertion sort is needed
 		return result;
 	}
 	
