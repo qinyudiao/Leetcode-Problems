@@ -15,11 +15,27 @@ public class TreeNode {
     	this.val = val;
     }
     
+    public TreeNode(int[] values) {
+    	this.val = values[0];
+    	this.left = insertLevelOrder(values, this.left, 1);
+    	this.right = insertLevelOrder(values, this.right, 2);
+    }
+    
     public TreeNode(int val, TreeNode left, TreeNode right) {
     	this.val = val;
     	this.left = left;
     	this.right = right;
     }
+    
+    public TreeNode insertLevelOrder(int[] values, TreeNode root, int i) {
+		if (i < values.length) { 
+			TreeNode temp = new TreeNode(values[i]); 
+			root = temp; 
+			root.left = insertLevelOrder(values, root.left, 2 * i + 1);
+			root.right = insertLevelOrder(values, root.right, 2 * i + 2);
+		} 
+		return root; 
+	}
     
     public List<Integer> extractValues() {
     	List<Integer> result = new ArrayList<>();
@@ -44,7 +60,33 @@ public class TreeNode {
             extractValues(root.right, list);
     }
     
-    public String deepToString() {
+    public String toStringInOrder() {
+    	StringBuilder sb = new StringBuilder();
+    	if(this != null) {
+    		if(this.left != null)
+    			sb.append(this.left.toStringInOrder()); 
+            sb.append(this.val);
+            sb.append(", "); 
+            if(this.right != null)
+            	sb.append(this.right.toStringInOrder()); 
+        }
+    	return sb.toString();
+    }
+    
+    public String toStringDFS() { // DFS
+    	StringBuilder sb = new StringBuilder();
+    	if(this != null) {
+    		sb.append(this.val);
+            sb.append(", "); 
+    		if(this.left != null)
+    			sb.append(this.left.toStringInOrder()); 
+            if(this.right != null)
+            	sb.append(this.right.toStringInOrder()); 
+        }
+    	return sb.toString();
+    }
+    
+    public String toStringBFS() { // BFS
     	List<Integer> vals = new ArrayList<>();
     	
     	List<TreeNode> toVisit = new ArrayList<>();
