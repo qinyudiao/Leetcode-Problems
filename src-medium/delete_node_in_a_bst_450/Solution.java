@@ -62,11 +62,11 @@ public class Solution {
 		TreeNode node6 = new TreeNode(6, null, node7);
 		TreeNode node5 = new TreeNode(5, node3, node6);
 		
-		System.out.println("TreeNode Before: " + node5.deepToString());
-		System.out.println("TreeNode After: " + solution.deleteNode(node5, 3).deepToString());
+		System.out.println("TreeNode Before: " + node5.toStringBFS());
+		System.out.println("TreeNode After: " + solution.deleteNode(node5, 3).toStringBFS());
 		System.out.println();
-		System.out.println("TreeNode Before: " + node5.deepToString());
-		System.out.println("TreeNode After: " + solution.deleteNode(node5, 0).deepToString());
+		System.out.println("TreeNode Before: " + node5.toStringBFS());
+		System.out.println("TreeNode After: " + solution.deleteNode(node5, 0).toStringBFS());
 		
 		// [3, 1, 4, null, 2, null, null], 3 => [4, 1, null, null, 2, null, null]
 		node2 = new TreeNode(2);
@@ -74,15 +74,15 @@ public class Solution {
 		TreeNode node1 = new TreeNode(1, null, node2);
 		node3 = new TreeNode(3, node1, node4);
 		System.out.println();
-		System.out.println("TreeNode Before: " + node3.deepToString());
-		System.out.println("TreeNode After: " + solution.deleteNode(node3, 3).deepToString());
+		System.out.println("TreeNode Before: " + node3.toStringBFS());
+		System.out.println("TreeNode After: " + solution.deleteNode(node3, 3).toStringBFS());
 		
 		// [1, null, 2], 1 => [2]
 		node2 = new TreeNode(2);
 		node1 = new TreeNode(1, null, node2);
 		System.out.println();
-		System.out.println("TreeNode Before: " + node1.deepToString());
-		System.out.println("TreeNode After: " + solution.deleteNode(node1, 1).deepToString());
+		System.out.println("TreeNode Before: " + node1.toStringBFS());
+		System.out.println("TreeNode After: " + solution.deleteNode(node1, 1).toStringBFS());
 	}
 	
 	// trade-off: cleaner code, larger memory usage
@@ -138,8 +138,8 @@ public class Solution {
 			}
 		}
 		
-		System.out.println("parent: " + parent.deepToString());
-		System.out.println("curr: " + curr.deepToString());
+		System.out.println("parent: " + parent.toStringBFS());
+		System.out.println("curr: " + curr.toStringBFS());
 		
 		removeNode(parent, curr, root.val == key, rootParent);
 		

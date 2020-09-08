@@ -15,7 +15,7 @@ public class TreeNode {
     	this.val = val;
     }
     
-    public TreeNode(int[] values) {
+    public TreeNode(Integer[] values) {
     	this.val = values[0];
     	this.left = insertLevelOrder(values, this.left, 1);
     	this.right = insertLevelOrder(values, this.right, 2);
@@ -27,8 +27,8 @@ public class TreeNode {
     	this.right = right;
     }
     
-    public TreeNode insertLevelOrder(int[] values, TreeNode root, int i) {
-		if (i < values.length) { 
+    public TreeNode insertLevelOrder(Integer[] values, TreeNode root, int i) {
+		if (i < values.length && values[i] != null) { 
 			TreeNode temp = new TreeNode(values[i]); 
 			root = temp; 
 			root.left = insertLevelOrder(values, root.left, 2 * i + 1);
