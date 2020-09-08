@@ -37,8 +37,8 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 		
-		int[][] testCases = {{1, 0, 1, 0, 1, 0, 1}};
-		for(int[] testCase : testCases) {
+		Integer[][] testCases = {{1, 0, 1, 0, 1, 0, 1}};
+		for(Integer[] testCase : testCases) {
 			TreeNode root = new TreeNode(testCase);
 			System.out.println(root.toStringBFS());
 			System.out.println(solution.sumRootToLeaf(root));
