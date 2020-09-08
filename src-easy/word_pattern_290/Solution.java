@@ -51,7 +51,7 @@ public class Solution {
     }
 	
 	//	Runtime: 0 ms, faster than 100.00% of Java online submissions for Word Pattern.
-	//	Memory Usage: 37.3 MB, less than 86.26% of Java online submissions for Word Pattern.
+	//	Memory Usage: 37.3 MB, less than 86.26% of Java online submissions for Word Pattern. 
 	
 	// Idea: use one HashMap. Tradeoff: takes more time.
 	// O(n + m), where n is pattern.length() and m is number of words in str. 
