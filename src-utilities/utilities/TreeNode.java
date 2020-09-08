@@ -15,10 +15,10 @@ public class TreeNode {
     	this.val = val;
     }
     
-    public TreeNode(Integer[] values) {
-    	this.val = values[0];
-    	this.left = insertLevelOrder(values, this.left, 1);
-    	this.right = insertLevelOrder(values, this.right, 2);
+    public TreeNode(Integer[] valuesInOrder) {
+    	this.val = valuesInOrder[0];
+    	this.left = insertInOrder(valuesInOrder, this.left, 1);
+    	this.right = insertInOrder(valuesInOrder, this.right, 2);
     }
     
     public TreeNode(int val, TreeNode left, TreeNode right) {
@@ -27,12 +27,12 @@ public class TreeNode {
     	this.right = right;
     }
     
-    public TreeNode insertLevelOrder(Integer[] values, TreeNode root, int i) {
+    public TreeNode insertInOrder(Integer[] values, TreeNode root, int i) {
 		if (i < values.length && values[i] != null) { 
 			TreeNode temp = new TreeNode(values[i]); 
 			root = temp; 
-			root.left = insertLevelOrder(values, root.left, 2 * i + 1);
-			root.right = insertLevelOrder(values, root.right, 2 * i + 2);
+			root.left = insertInOrder(values, root.left, 2 * i + 1);
+			root.right = insertInOrder(values, root.right, 2 * i + 2);
 		} 
 		return root; 
 	}
