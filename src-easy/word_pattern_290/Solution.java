@@ -23,7 +23,6 @@ public class Solution {
 		for(int i = 0; i < testCasesPattern.length; i++) {
 			System.out.println(solution.wordPattern(testCasesPattern[i], testCasesStr[i]));	// true, false, false, false
 		}
-
 	}
 	
 	// Idea: use two HashMaps to save time from O(n) containsValue operation. Tradeoff: uses more memory.
