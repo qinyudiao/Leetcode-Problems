@@ -21,8 +21,8 @@ public class Solution {
     
 	// idea: Store nums in a Trie. Each insert() takes O(32). Then find the maxXOR for each number by going through the Trie. Each search takes O(32). Therefore, O(2 * (32 * n)).
 	// O(n), where n is the length of nums.
-    public int findMaximumXOR(int[] nums) {
-    	root = new TrieNode();
+	public int findMaximumXOR(int[] nums) {
+		root = new TrieNode();
 		for(int i = 0; i < nums.length; i++) {
 			insert(nums[i]);
 		}
@@ -56,7 +56,7 @@ public class Solution {
         }
         
         return maxXOR;
-    }
+	}
 		
 	public void insert(int num) {
 		TrieNode curr = root;
