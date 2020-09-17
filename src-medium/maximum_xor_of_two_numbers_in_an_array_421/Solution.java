@@ -4,7 +4,7 @@ package maximum_xor_of_two_numbers_in_an_array_421;
 //	
 //	Find the maximum result of ai XOR aj, where 0 ≤ i, j < n.
 //	
-//	Could you do this in O(n) runtime?
+//	åCould you do this in O(n) runtime?
 		
 public class Solution {
 	
@@ -28,34 +28,34 @@ public class Solution {
 		}
 		
 		int maxXOR = 0;
-        
-        for(int num : nums){
-            TrieNode curr = this.root;
-            int max = 0;
-            for(int i = 31; i >= 0; i--){ // go through the Trie to find the number that results in a maxXOR for current number
-            	int bit = (num >> i) & 1;
-                if(bit == 1){
-                    if(curr.children[0] != null){
-                        max |= 1 << i;
-                        curr = curr.children[0];
-                    }
-                    else 
-                        curr = curr.children[1];
-                }
-                else {
-                    if(curr.children[1] != null){
-                        max |= 1 << i;
-                        curr = curr.children[1];
-                    }
-                    else 
-                        curr = curr.children[0];
-                }
-            }
-            if(max > maxXOR)
-            	maxXOR = max;
-        }
-        
-        return maxXOR;
+		
+		for(int num : nums){
+			TrieNode curr = this.root;
+			int max = 0;
+			for(int i = 31; i >= 0; i--) { // go through the Trie to find the number that results in a maxXOR for current number
+				int bit = (num >> i) & 1;
+				if(bit == 1){
+					if(curr.children[0] != null){
+						max |= 1 << i;
+						curr = curr.children[0];
+					}
+					else 
+						curr = curr.children[1];
+				}
+				else {
+					if(curr.children[1] != null){
+						max |= 1 << i;
+						curr = curr.children[1];
+					}
+					else 
+						curr = curr.children[0];
+				}
+			}
+			if(max > maxXOR)
+				maxXOR = max;
+		}
+		
+		return maxXOR;
 	}
 		
 	public void insert(int num) {
