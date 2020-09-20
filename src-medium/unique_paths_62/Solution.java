@@ -8,7 +8,7 @@ import java.util.Arrays;
 //	The robot is trying to reach the bottom-right corner of the grid.
 //	
 //	How many possible unique paths are there?
-		
+
 public class Solution {
 
 	public static void main(String[] args) {
@@ -28,10 +28,9 @@ public class Solution {
         for(int[] row : dp) {
         	row[0] = 1;
         }
-        for(int i = 1; i < n; i++) {
-        	dp[0][i] = 1;
+        for(int j = 1; j < n; j++) {
+        	dp[0][j] = 1;
         }
-        
         for(int i = 1; i < m; i++) {
         	for(int j = 1; j < n; j++) {
             	dp[i][j] = dp[i][j-1] + dp[i-1][j];
