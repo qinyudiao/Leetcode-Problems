@@ -24,8 +24,9 @@ public class Solution {
 		}
 	}
 
-	// Idea: If a car starts from station i fails to reach station j, then stations [i, j) can not be starting station.
+	// Idea: If a car starts from station i and fails to reach station j, then stations [i, j) can not be the starting station.
 	// T(n) = O(n)
+	// S(n) = O(1)
 	public int canCompleteCircuit(int[] gas, int[] cost) {
 		int gasInTank = 0;
 		int startStation = 0;
@@ -46,7 +47,6 @@ public class Solution {
 		return startStation;
 	}
 }
-
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Gas Station.
 //	Memory Usage: 39.7 MB, less than 70.51% of Java online submissions for Gas Station.
