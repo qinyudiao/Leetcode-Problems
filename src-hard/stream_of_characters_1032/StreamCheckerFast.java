@@ -28,30 +28,30 @@ public class StreamCheckerFast {
 		System.out.println(streamChecker.query('l'));          // return true, because 'kl' is in the wordlist
 	}
 	
-    public StreamCheckerFast(String[] words) {
-    	for(String word : words) {
-    		trie.insert(word);
-    	}
-    }
+	public StreamCheckerFast(String[] words) {
+		for(String word : words) {
+			trie.insert(word);
+		}
+	}
     
-    public boolean query(char letter) {
-    	Queue<TrieNodeFast> queueNext = new LinkedList<>();
-    	
+	public boolean query(char letter) {
+		Queue<TrieNodeFast> queueNext = new LinkedList<>();
+
 		queue.add(trie.root);
 		TrieNodeFast curr = null;
 		boolean isFound = false;
 		while(!queue.isEmpty()) {
 			curr = queue.poll();
-				
+
 			if(curr.children[letter - 'a'] != null) {
 				queueNext.add(curr.children[letter - 'a']);
 				if(curr.children[letter - 'a'].isCompleteWord)
 					isFound = true;
 			}
 		}
-		
+
 		queue.addAll(queueNext);
-		
-        return isFound;
-    }
+
+		return isFound;
+	}
 }
