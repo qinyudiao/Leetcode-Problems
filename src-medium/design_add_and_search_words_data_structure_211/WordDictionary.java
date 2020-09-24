@@ -20,51 +20,50 @@ import utilities.TrieNodeFast;
 public class WordDictionary {
 	
 	public TrieNodeFast root;
-
-    /** Initialize your data structure here. */
-    public WordDictionary() {
-        root = new TrieNodeFast();
-    }
+	
+	/** Initialize your data structure here. */
+	public WordDictionary() {
+		root = new TrieNodeFast();
+	}
     
-    /** Adds a word into the data structure. */
-    public void addWord(String word) {
+	/** Adds a word into the data structure. */
+	public void addWord(String word) {
 		TrieNodeFast curr = root;
 		
 		for(int i = 0; i < word.length(); i++) {
 			char c = word.charAt(i);
-	        if (curr.children[c - 'a'] == null) {
-	          curr.children[c - 'a'] = new TrieNodeFast(); 
-	        }
-	        curr = curr.children[c - 'a'];  
-        }
+			if (curr.children[c - 'a'] == null)
+				curr.children[c - 'a'] = new TrieNodeFast(); 
+			curr = curr.children[c - 'a'];  
+		}
 		
 		curr.isCompleteWord = true;
-    }
+	}
     
-    /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
-    public boolean search(String word) {
-        return searchDfs(word, 0, root);
-    }
+	/** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+	public boolean search(String word) {
+		return searchDfs(word, 0, root);
+	}
     
-    public boolean searchDfs(String word, int start, TrieNodeFast curr) {
-    	for(int i = start; i < word.length(); i++) {
-        	char c = word.charAt(i);
-        	if(c != '.') {
-        		if(curr.children[c - 'a'] == null)
-            		return false;
-            	curr = curr.children[c - 'a'];
-        	} else {
-        		for(int j = 0; j < 26; j++) {
-        			if(curr.children[j] != null && searchDfs(word, i+1, curr.children[j])) {
-        				return true;
-        			}
-        		}
-        		return false;
-        	}
-        }
-    	
-    	return curr.isCompleteWord ? true : false;
-    }
+	public boolean searchDfs(String word, int start, TrieNodeFast curr) {
+		for(int i = start; i < word.length(); i++) {
+			char c = word.charAt(i);
+			if(c != '.') {
+				if(curr.children[c - 'a'] == null)
+					return false;
+				curr = curr.children[c - 'a'];
+			}
+			else {
+				for(int j = 0; j < 26; j++) {
+					if(curr.children[j] != null && searchDfs(word, i+1, curr.children[j]))
+						return true;
+				}
+				return false;
+			}
+		}
+		
+		return curr.isCompleteWord ? true : false;
+	}
 }
 
 //	Runtime: 36 ms, faster than 98.52% of Java online submissions for Design Add and Search Words Data Structure.
