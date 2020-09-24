@@ -34,15 +34,15 @@ public class Solution {
 		if(nums.length == 1)
 			return nums[0];
 		
-        int[] results = new int[nums.length];
+		int[] results = new int[nums.length];
 		results[0] = nums[0];
 		results[1] = Math.max(nums[0], nums[1]);
-        for(int i = 2; i < nums.length; i++) {
-        	results[i] = Math.max(results[i-2] + nums[i], results[i-1]);
-        }
-        
-        return results[nums.length-1];
-    }
+		for(int i = 2; i < nums.length; i++) {
+			results[i] = Math.max(results[i-2] + nums[i], results[i-1]);
+		}
+		
+		return results[nums.length-1];
+	}
 	
 	// T(n) = O(3n)
 	// S(n) = O(1)
@@ -53,17 +53,17 @@ public class Solution {
 		if(nums.length == 1)
 			return nums[0];
 		
-        int last2 = nums[0];
-        int last1 = Math.max(nums[0], nums[1]);
-        int temp;
-        for(int i = 2; i < nums.length; i++) {
-        	temp = last1;
-        	last1 = Math.max(last2 + nums[i], last1);
-        	last2 = temp;
-        }
-        
-        return last1;
-    }
+		int last2 = nums[0];
+		int last1 = Math.max(nums[0], nums[1]);
+		int temp;
+		for(int i = 2; i < nums.length; i++) {
+			temp = last1;
+			last1 = Math.max(last2 + nums[i], last1);
+			last2 = temp;
+		}
+
+		return last1;
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for House Robber.
