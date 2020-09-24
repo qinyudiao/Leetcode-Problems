@@ -50,7 +50,7 @@ public class Solution {
 	// S(n): O(n).
 	public int sumRootToLeaf(TreeNode root) {
 		return sumRootToLeafDFS(root, 0);
-    }
+	}
 	
 	public int sumRootToLeafDFS(TreeNode root, int base) {
 		int sum = 0;
@@ -67,4 +67,3 @@ public class Solution {
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Sum of Root To Leaf Binary Numbers.
 //	Memory Usage: 39.3 MB, less than 55.80% of Java online submissions for Sum of Root To Leaf Binary Numbers.
-
