@@ -43,27 +43,28 @@ public class Solution {
 	}
 
 	// O(m*n), where m is the number of queries, n is the max length of a query
-    public List<Boolean> camelMatch(String[] queries, String pattern) {
-        List<Boolean> result = new ArrayList<>();
-        
-        for (String query : queries) {
-        	int count = 0;
-        	int size = result.size();
-            for (int i = 0; i < query.length(); i++) {
-            	char c = query.charAt(i);
-                if (count < pattern.length() && c == pattern.charAt(count)) {
-                    count++;
-                } else if (Character.isUpperCase(c)) {
-                	result.add(false);
-                    break;
-                }
-            }
-            if(size == result.size())
-            	result.add(pattern.length() == count);
-        }
-        
-        return result;
-    }
+	public List<Boolean> camelMatch(String[] queries, String pattern) {
+		List<Boolean> result = new ArrayList<>();
+
+		for (String query : queries) {
+			int count = 0;
+			int size = result.size();
+			for (int i = 0; i < query.length(); i++) {
+				char c = query.charAt(i);
+				if (count < pattern.length() && c == pattern.charAt(count)) {
+					count++;
+				}
+				else if (Character.isUpperCase(c)) {
+					result.add(false);
+				break;
+			}
+		}
+		if(size == result.size())
+			result.add(pattern.length() == count);
+		}
+
+		return result;
+	}
     
 //    Runtime: 0 ms, faster than 100.00% of Java online submissions for Camelcase Matching.
 //    Memory Usage: 37.2 MB, less than 94.81% of Java online submissions for Camelcase Matching.
@@ -139,5 +140,5 @@ public class Solution {
 		}
 		
 		return result;
-    }
+	}
 }
