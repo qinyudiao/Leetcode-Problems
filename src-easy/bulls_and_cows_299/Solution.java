@@ -55,7 +55,7 @@ public class Solution {
 		}
 		
 		return new StringBuilder().append(bull).append("A").append(cow).append("B").toString();
-    }
+	}
 }
 
 //	Runtime: 2 ms, faster than 95.16% of Java online submissions for Bulls and Cows.
