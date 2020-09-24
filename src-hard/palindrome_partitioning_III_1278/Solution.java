@@ -65,8 +65,6 @@ public class Solution {
 			}
 		}
 
-//		print2DArray(dp);
-
 		return dp[n-1][k-1];
 	}
     
@@ -98,7 +96,6 @@ public class Solution {
 			}
 		}
 		
-//		print2DArray(dp);
 		return dp[n-1][k-1];
 	}
 
@@ -115,17 +112,5 @@ public class Solution {
 		}
 
 		return count;
-	}
-	
-	public void print2DArray(int[][] arrays) {
-		for(int[] array : arrays) {
-			System.out.print("[");
-			if(array.length > 0)
-				System.out.print(array[0]);
-			for(int i = 1; i < array.length; i++) {
-				System.out.print(", " + array[i]);;
-			}
-			System.out.println("]");
-		}
 	}
 }
