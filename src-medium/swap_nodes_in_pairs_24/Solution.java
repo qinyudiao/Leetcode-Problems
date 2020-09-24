@@ -18,28 +18,27 @@ import utilities.ListNode;
  */
 
 public class Solution {
-    public ListNode swapPairs(ListNode head) {
-        if (head == null || head.next == null){
-            return head;
-        }
-        
-        ListNode h = new ListNode(0);
-        h.next = head;
-        ListNode p = h;
+	public ListNode swapPairs(ListNode head) {
+		if (head == null || head.next == null)
+		    return head;
 
-        while(p.next != null && p.next.next != null){
-            
-            ListNode t1 = p;
-            p = p.next;
-            t1.next = p.next;
+		ListNode h = new ListNode(0);
+		h.next = head;
+		ListNode p = h;
 
-            ListNode t2 = p.next.next;
-            p.next.next = p;
-            p.next = t2;
-        }
+		while(p.next != null && p.next.next != null) {
 
-        return h.next;
-    }
+		    ListNode t1 = p;
+		    p = p.next;
+		    t1.next = p.next;
+
+		    ListNode t2 = p.next.next;
+		    p.next.next = p;
+		    p.next = t2;
+		}
+
+		return h.next;
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Swap Nodes in Pairs.
