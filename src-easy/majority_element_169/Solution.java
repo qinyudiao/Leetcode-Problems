@@ -19,7 +19,30 @@ public class Solution {
 		}
 	}
 
+	// S(n) = O(1).
 	public int majorityElement(int[] nums) {
+		int candidate = nums[0];
+		int count = 1;
+		
+		for(int i = 1; i < nums.length; i++) {
+			if(candidate == nums[i])
+				count++;
+			else
+				count--;
+			if(count == 0) {
+				candidate = nums[i];
+				count = 1;
+			}
+		}
+		
+		return candidate;
+	}
+	
+//	Runtime: 1 ms, faster than 99.93% of Java online submissions for Majority Element.
+//	Memory Usage: 43 MB, less than 66.60% of Java online submissions for Majority Element.
+	
+	// S(n) = O(n)
+	public int majorityElement1(int[] nums) {
 		Map<Integer, Integer> map = new HashMap<>();
 		
 		int halfSize = nums.length / 2;
@@ -34,4 +57,7 @@ public class Solution {
 		
 		return -1;
 	}
+	
+//	Runtime: 12 ms, faster than 24.50% of Java online submissions for Majority Element.
+//	Memory Usage: 45 MB, less than 35.29% of Java online submissions for Majority Element.
 }
