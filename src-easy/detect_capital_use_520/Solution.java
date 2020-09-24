@@ -28,22 +28,24 @@ public class Solution {
 				for (int i = 2; i < word.length(); i++) { 
 					if(!Character.isUpperCase(word.charAt(i)))
 						return false;
-		        }
-			} else {
+				}
+			}
+			else {
 				for (int i = 2; i < word.length(); i++) { 
 					if(Character.isUpperCase(word.charAt(i)))
 						return false;
-		        }
+				}
 			}
-		} else {
+		}
+		else {
 			for (int i = 1; i < word.length(); i++) { 
 				if(Character.isUpperCase(word.charAt(i)))
 					return false;
-	        }
+			}
 		}
 		
 		return true;
-    }
+	}
 }
 
 //	Runtime: 1 ms, faster than 99.53% of Java online submissions for Detect Capital.
