@@ -36,30 +36,31 @@ public class Solution {
 		}
 	}
 	
-    public int romanToInt(String s) {
-        HashMap<Character, Integer> map = new HashMap<>();
-        map.put('I',1);
-        map.put('V',5);
-        map.put('X',10);
-        map.put('L',50);
-        map.put('C',100);
-        map.put('D',500);
-        map.put('M',1000);
-        
-        int integer_value = 0;
-        for(int i=0; i<s.length(); i++){
-            if(i+1 == s.length())
-                integer_value += map.get(s.charAt(i));
-            else if(map.get(s.charAt(i)) < map.get(s.charAt(i+1))){
-                integer_value = integer_value - map.get(s.charAt(i)) + map.get(s.charAt(i+1));
-                i++;
-            }
-            else{
-                integer_value += map.get(s.charAt(i));
-            }
-        }
-        return integer_value;
-    }
+	public int romanToInt(String s) {
+		HashMap<Character, Integer> map = new HashMap<>();
+		map.put('I',1);
+		map.put('V',5);
+		map.put('X',10);
+		map.put('L',50);
+		map.put('C',100);
+		map.put('D',500);
+		map.put('M',1000);
+
+		int integer_value = 0;
+		for(int i=0; i<s.length(); i++){
+			if(i+1 == s.length())
+				integer_value += map.get(s.charAt(i));
+			else if(map.get(s.charAt(i)) < map.get(s.charAt(i+1))){
+				integer_value = integer_value - map.get(s.charAt(i)) + map.get(s.charAt(i+1));
+				i++;
+			}
+			else{
+				integer_value += map.get(s.charAt(i));
+			}
+		}
+		
+		return integer_value;
+	}
 }
 
 //	Runtime: 5 ms, faster than 75.45% of Java online submissions for Roman to Integer.
