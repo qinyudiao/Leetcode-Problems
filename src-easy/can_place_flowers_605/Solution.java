@@ -61,7 +61,7 @@ public class Solution {
         }
 		
 		return false;
-    }
+	}
 }
 
 //	Runtime: 1 ms, faster than 97.07% of Java online submissions for Can Place Flowers.
