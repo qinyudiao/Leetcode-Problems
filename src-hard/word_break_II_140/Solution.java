@@ -59,14 +59,14 @@ public class Solution {
 	 * @return
 	 */
 	private void dfs_al(List<TreeSet<Integer>> graph, int source, int destination, List<Integer> list, List<List<Integer>> result) {
-        if(source == destination)
-        	result.add(list); // if soruce reached destination, add path in result
-        list.add(source); // add current vertex
-        for(Integer vertex : graph.get(source)) {
-            List<Integer> copiedList = new ArrayList<>(list); // clone the path
-            dfs_al(graph, vertex, destination, copiedList, result);
-        }
-    }
+		if(source == destination)
+			result.add(list); // if soruce reached destination, add path in result
+		list.add(source); // add current vertex
+		for(Integer vertex : graph.get(source)) {
+			List<Integer> copiedList = new ArrayList<>(list); // clone the path
+			dfs_al(graph, vertex, destination, copiedList, result);
+		}
+	}
 	
 	private int getMaxWordLength(List<String> wordDict) {
 		int max_word_length = 0;
