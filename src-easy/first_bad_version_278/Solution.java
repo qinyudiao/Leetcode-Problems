@@ -42,19 +42,19 @@ public class Solution extends VersionControl {
 			System.out.println(" ------ " + solution.firstBadVersion(testCase[1]));	
 		}
 	}
+	
 	public int firstBadVersion(int n) {
-        int l = 1, r = n;
-        while (l <= r) {
-        	int m = l + (r - l) / 2; // can't use (l + r) / 2, because l + r could be larger than Integer.MAX_VALUE
-        	if(isBadVersion(m))
-        		r = m - 1;
-        	else {
-        		l = m + 1;
-        	}
-//        	System.out.print("l:" + l + " m:" + m + " r:" + r + " ; ");
-        }
+		int l = 1, r = n;
+		while (l <= r) {
+			int m = l + (r - l) / 2; // can't use (l + r) / 2, because l + r could be larger than Integer.MAX_VALUE
+			if(isBadVersion(m))
+				r = m - 1;
+			else
+				l = m + 1;
+	//		System.out.print("l:" + l + " m:" + m + " r:" + r + " ; ");
+		}
  
-        return Math.max(l, r);
+		return Math.max(l, r);
 	}
 }
 
