@@ -23,29 +23,31 @@ public class Solution {
 		}
 	}
 	
-    public int pivotIndex(int[] nums) {
-        if(nums.length < 3)
-            return -1;
+	public int pivotIndex(int[] nums) {
+		if(nums.length < 3)
+			return -1;
         
-        int sum_left = 0;
-        int sum_right = 0;
+		int sum_left = 0;
+		int sum_right = 0;
         
-        for(int i=1; i<nums.length; i++)
-            sum_right += nums[i];
+		for(int i=1; i<nums.length; i++) {
+			sum_right += nums[i];
+		}
         
-        if((sum_right) == 0)
-           return 0;
-        
-        int index = 1;
-        while(index < nums.length) {
-            sum_left += nums[index-1];
-            sum_right -= nums[index];
-            if(sum_left == sum_right)
-                return index;
-            index++;
-        }
-        return -1;
-    }
+		if((sum_right) == 0)
+			return 0;
+
+		int index = 1;
+		while(index < nums.length) {
+			sum_left += nums[index-1];
+			sum_right -= nums[index];
+			if(sum_left == sum_right)
+				return index;
+			index++;
+		}
+		
+		return -1;
+	}
 }
 
 //	Runtime: 1 ms, faster than 100.00% of Java online submissions for Find Pivot Index.
