@@ -29,7 +29,7 @@ public class Solution {
 			if(prices[i] - localMin > max)
 				max = prices[i] - localMin;
 		}
-        return max;
+		return max;
 	}
 }
 
