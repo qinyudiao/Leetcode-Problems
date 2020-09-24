@@ -30,7 +30,7 @@ public class Solution {
 				max = prices[i] - localMin;
 		}
         return max;
-    }
+	}
 }
 
 //	Runtime: 1 ms, faster than 99.32% of Java online submissions for Best Time to Buy and Sell Stock.
