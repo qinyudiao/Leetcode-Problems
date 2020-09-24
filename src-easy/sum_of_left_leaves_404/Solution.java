@@ -45,28 +45,25 @@ public class Solution {
 	}
 	
 	// iterative
-    public int sumOfLeftLeaves(TreeNode root) {
+	public int sumOfLeftLeaves(TreeNode root) {
 		int sumOfLeftLeaves = 0;
-        
-        Queue<TreeNode> toVisit = new LinkedList<>();	
-        TreeNode curr = root;
-        if(curr != null)
-            toVisit.add(curr);
-        while(!toVisit.isEmpty()) {
-        	curr = toVisit.poll();
-            if(curr.left != null){
-                if(curr.left.left == null && curr.left.right == null) {
-                    sumOfLeftLeaves += curr.left.val;
-                }
-                if(curr.left.left != null || curr.left.right != null) {
-                    toVisit.add(curr.left);
-                }
-            }
-        	if(curr.right != null && ( curr.right.left != null || curr.right.right != null)) {
-        		toVisit.add(curr.right);
-        	}
-        }
+
+		Queue<TreeNode> toVisit = new LinkedList<>();	
+		TreeNode curr = root;
+		if(curr != null)
+			toVisit.add(curr);
+		while(!toVisit.isEmpty()) {
+			curr = toVisit.poll();
+			if(curr.left != null){
+				if(curr.left.left == null && curr.left.right == null)
+					sumOfLeftLeaves += curr.left.val;
+				if(curr.left.left != null || curr.left.right != null)
+					toVisit.add(curr.left);
+			}
+			if(curr.right != null && ( curr.right.left != null || curr.right.right != null))
+				toVisit.add(curr.right);
+		}
         
 		return sumOfLeftLeaves;
-    }
+	}
 }
