@@ -39,8 +39,8 @@ public class Solution {
 		}
 			
 		int candidate1 = nums[0];
-        Integer candidate2 = null;
-        int count1 = 1;
+		Integer candidate2 = null;
+		int count1 = 1;
 		int count2 = 0;
 		
 		for(int i = 1; i < nums.length - 1; i++) {

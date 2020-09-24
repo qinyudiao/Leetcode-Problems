@@ -45,7 +45,7 @@ public class Solution {
         }
         
         return result;
-    }	
+	}	
 }
 
 //	Runtime: 2 ms, faster than 99.65% of Java online submissions for Partition Labels.

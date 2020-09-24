@@ -50,24 +50,24 @@ public class Solution extends GuessGame {
 	}
 	
 	// T(n) = O(log n)
-    public int guessNumber(int n) {
-        int l = 1, r = n;
-        while (l <= r) {
-        	int toGuess = l + (r - l) / 2; // can't use (l + r) / 2, because l + r could be larger than Integer.MAX_VALUE
-        	int guessedResult = guess(toGuess);
+	public int guessNumber(int n) {
+		int l = 1, r = n;
+		while (l <= r) {
+			int toGuess = l + (r - l) / 2; // can't use (l + r) / 2, because l + r could be larger than Integer.MAX_VALUE
+			int guessedResult = guess(toGuess);
         	
-        	if(guessedResult == 0)
-        		return toGuess;
-        	else if(guessedResult == 1) {
-        		l = toGuess + 1;
-        	} else {
-        		r = toGuess - 1;
-        	}
-//        	System.out.print("l: " + l + " r: " + r + " ; ");
-        }
+			if(guessedResult == 0)
+				return toGuess;
+			else if(guessedResult == 1)
+				l = toGuess + 1;
+			else
+				r = toGuess - 1;
+			
+//		System.out.print("l: " + l + " r: " + r + " ; ");
+		}
  
-        return -1;
-    }
+		return -1;
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Guess Number Higher or Lower.

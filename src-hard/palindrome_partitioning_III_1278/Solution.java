@@ -35,51 +35,49 @@ public class Solution {
 
 	// uses a second 2d array to store the steps to avoid duplicated calculations in each stepsToPanlindrome() call
 	// O(l*n^2), where l is k and n is s.length()
-    public int palindromePartition(String s, int k) {
-        int n = s.length();
-        if(n <= k)
-            return 0;
+	public int palindromePartition(String s, int k) {
+		int n = s.length();
+		if(n <= k)
+			return 0;
+
+		int[][] steps = new int[n][n]; // stores the steps(substring.startIndex, substring.endIndex-1)
+		int[][] dp = new int[n][k]; // stores the minimal number for each substring starts with 0, and with length = n +1, number of subtrings can be divided into = k + 1
+
+		for(int j = 1; j < n; j++) { // starts with j = 1 because length 1 string is palindrome => steps[0][0] == 0
+			for(int i = 0; i <= j - 1; i++) { // ends with i = j - 1 beacause steps[i][j] == 0 when i == j
+				steps[i][j] = steps[i+1][j-1] + (s.charAt(i) == s.charAt(j) ? 0 : 1);
+			}
+		}
         
-        int[][] steps = new int[n][n]; // stores the steps(substring.startIndex, substring.endIndex-1)
-        int[][] dp = new int[n][k]; // stores the minimal number for each substring starts with 0, and with length = n +1, number of subtrings can be divided into = k + 1
+//		print2DArray(steps);
         
-        for(int j = 1; j < n; j++) { // starts with j = 1 because length 1 string is palindrome => steps[0][0] == 0
-            for(int i = 0; i <= j - 1; i++) { // ends with i = j - 1 beacause steps[i][j] == 0 when i == j
-                steps[i][j] = steps[i+1][j-1] + (s.charAt(i) == s.charAt(j) ? 0 : 1);
-            }
-        }
-        
-//        print2DArray(steps);
-        
-        for(int i = 0; i < n; i++) { // store the number of changes needed for each substring starts from index 0
-            dp[i][0] = steps[0][i];
-        }
-        
-        for(int l = 1; l < k; l++) { // l is the number of substrings can be divided into
-            for(int j = l; j < n; j++) { // j is substring.endIndex-1
-                int min = Integer.MAX_VALUE;
-                for(int i = 0; i <= j - 1; i++) { // i is substring.startIndex
-                    min = Math.min(min, dp[i][l-1] + steps[i+1][j]); // for string starts wth n = 3 and k = 3, dp[2][2] = min((dp[0][1] + steps[1][2]), (dp[1][1] + steps[2][2]))
-                }
-                dp[j][l] = min;
-            }
-        }
-        
-//        print2DArray(dp);
-        
-        return dp[n-1][k-1];
-    }
+		for(int i = 0; i < n; i++) { // store the number of changes needed for each substring starts from index 0
+		    dp[i][0] = steps[0][i];
+		}
+		
+		for(int l = 1; l < k; l++) { // l is the number of substrings can be divided into
+			for(int j = l; j < n; j++) { // j is substring.endIndex-1
+				int min = Integer.MAX_VALUE;
+				for(int i = 0; i <= j - 1; i++) { // i is substring.startIndex
+					min = Math.min(min, dp[i][l-1] + steps[i+1][j]); // for string starts wth n = 3 and k = 3, dp[2][2] = min((dp[0][1] + steps[1][2]), (dp[1][1] + steps[2][2]))
+				}
+				dp[j][l] = min;
+			}
+		}
+
+		return dp[n-1][k-1];
+	}
     
 //    Runtime: 3 ms, faster than 98.38% of Java online submissions for Palindrome Partitioning III.
 //    Memory Usage: 37.5 MB, less than 71.10% of Java online submissions for Palindrome Partitioning III.
     
     
-    // only uses one dp, causing it some extra runtime.
-    // O(l*n^3)
+	// only uses one dp, causing it some extra runtime.
+	// O(l*n^3)
 	public int palindromePartition1(String s, int k) {
 		int n = s.length();
 		if(n == k)
-            return 0;
+			return 0;
 		
 		int[][] dp = new int[n][k]; // stores the minimal number for each substring with each k
 		
@@ -88,18 +86,17 @@ public class Solution {
 		}
 		
 		for(int j = 1; j < k; j++){
-            for(int i = j + 1; i < s.length(); i++){
-                dp[i][j] = Integer.MAX_VALUE;
-                String last = "";
-                for(int l = i; l > j - 1; l--){
-                    last = s.charAt(l) + last;
-                    dp[i][j] = Math.min(dp[i][j], dp[l-1][j-1] + stepsToPanlindrome(last));
-                }
-            }
-        }
+			for(int i = j + 1; i < s.length(); i++){
+				dp[i][j] = Integer.MAX_VALUE;
+				String last = "";
+				for(int l = i; l > j - 1; l--){
+					last = s.charAt(l) + last;
+					dp[i][j] = Math.min(dp[i][j], dp[l-1][j-1] + stepsToPanlindrome(last));
+				}
+			}
+		}
 		
-//		print2DArray(dp);
-        return dp[n-1][k-1];
+		return dp[n-1][k-1];
 	}
 
 	// T(n) = O(n)
@@ -115,17 +112,5 @@ public class Solution {
 		}
 
 		return count;
-	}
-	
-	public void print2DArray(int[][] arrays) {
-		for(int[] array : arrays) {
-			System.out.print("[");
-			if(array.length > 0)
-				System.out.print(array[0]);
-			for(int i = 1; i < array.length; i++) {
-				System.out.print(", " + array[i]);;
-			}
-			System.out.println("]");
-		}
 	}
 }

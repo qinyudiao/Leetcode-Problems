@@ -71,7 +71,7 @@ public class Solution {
 		else if(root2 == null)
 			return root1.extractValues();
 		return MergeTwoSortedArrayLists.mergeTwoSortedArrayLists(root1.extractValues(), root2.extractValues());
-    }
+	}
 }
 
 //	Runtime: 13 ms, faster than 91.41% of Java online submissions for All Elements in Two Binary Search Trees.

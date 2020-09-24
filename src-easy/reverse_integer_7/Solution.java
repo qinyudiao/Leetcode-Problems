@@ -33,7 +33,7 @@ public class Solution {
 		}
 	
 		return (int)result;
-    }
+	}
 	
 //	Runtime: 1 ms, faster than 100.00% of Java online submissions for Reverse Integer.
 //	Memory Usage: 36.6 MB, less than 88.49% of Java online submissions for Reverse Integer.
@@ -56,5 +56,5 @@ public class Solution {
 		}
 			
 		return (int)result;
-    }
+	}
 }

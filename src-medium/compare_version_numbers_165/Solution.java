@@ -51,7 +51,7 @@ public class Solution {
 		}
 		
 		return 0;
-    }
+	}
 }
 
 //	Runtime: 1 ms, faster than 92.95% of Java online submissions for Compare Version Numbers.

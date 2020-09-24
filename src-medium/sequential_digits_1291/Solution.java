@@ -22,57 +22,57 @@ public class Solution {
 	}
 
 	public List<Integer> sequentialDigits(int low, int high) {
-        List<Integer> result = new ArrayList<>();
-        
-        // find num of digits of low and high
-        int lowDigits = 0;
-        int highDigits = 0;
-        for(int i = low; i != 0; i /= 10) {
-        	lowDigits++;
-        }
-        for(int i = high; i != 0; i /= 10) {
-        	highDigits++;
-        }
-        
-        // initialize numToStart and numToAdd
-        int numToStart = 1;
-    	int numToAdd = 1;
-    	for(int i = 1; i < lowDigits; i++) {
-    		numToStart = (numToStart * 10) + i + 1;
-    		numToAdd = (numToAdd * 10) + 1;
-    	}
-    	
-    	// for num of digits = lowDigits
-    	int num = numToStart;
-    	for(; num % 10 != 0; num += numToAdd) {
-    		if(num >= high)
-    			return result;
-    		if(num >= low)
-    			result.add(num);
-    	}
-    	
-    	// for num of digits in between
-        for(int d = lowDigits + 1; d < highDigits; d++) {
-        	numToStart = (numToStart * 10) + d;
-    		numToAdd = (numToAdd * 10) + 1;
-    		num = numToStart;
-        	for(; num % 10 != 0; num += numToAdd) {
-        		result.add(num);
-        	}
-        }
-        
-        // for num of digits = highDigits
-        numToStart = (numToStart * 10) + highDigits;
-		numToAdd = (numToAdd * 10) + 1;
-		num = numToStart;
-        for(; num % 10 != 0; num += numToAdd) {
-    		if(num > high)
-    			return result;
-    		result.add(num);
-    	}
-        
-        return result;
-    }
+		List<Integer> result = new ArrayList<>();
+
+		// find num of digits of low and high
+		int lowDigits = 0;
+		int highDigits = 0;
+		for(int i = low; i != 0; i /= 10) {
+			lowDigits++;
+		}
+		for(int i = high; i != 0; i /= 10) {
+			highDigits++;
+		}
+
+		// initialize numToStart and numToAdd
+		int numToStart = 1;
+		int numToAdd = 1;
+		for(int i = 1; i < lowDigits; i++) {
+			numToStart = (numToStart * 10) + i + 1;
+			numToAdd = (numToAdd * 10) + 1;
+		}
+
+		// for num of digits = lowDigits
+		int num = numToStart;
+		for(; num % 10 != 0; num += numToAdd) {
+			if(num >= high)
+				return result;
+			if(num >= low)
+				result.add(num);
+		}
+
+		// for num of digits in between
+		for(int d = lowDigits + 1; d < highDigits; d++) {
+			numToStart = (numToStart * 10) + d;
+			numToAdd = (numToAdd * 10) + 1;
+			num = numToStart;
+			for(; num % 10 != 0; num += numToAdd) {
+				result.add(num);
+			}
+		}
+
+		// for num of digits = highDigits
+		numToStart = (numToStart * 10) + highDigits;
+			numToAdd = (numToAdd * 10) + 1;
+			num = numToStart;
+		for(; num % 10 != 0; num += numToAdd) {
+			if(num > high)
+				return result;
+			result.add(num);
+		}
+
+		return result;
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Sequential Digits.

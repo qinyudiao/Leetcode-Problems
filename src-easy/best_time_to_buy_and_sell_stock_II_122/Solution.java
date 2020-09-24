@@ -47,7 +47,7 @@ public class Solution {
 			cumProfit += localMax - localMin;
 		
         return cumProfit;
-    }
+	}
 }
 
 //	Runtime: 1 ms, faster than 94.30% of Java online submissions for Best Time to Buy and Sell Stock II.

@@ -22,9 +22,9 @@ public class Solution {
 
 	public int uniquePathsIII(int[][] grid) {
 		int m = grid.length;
-        int n = grid[0].length;
-        
-        int numEmpties = 0;
+		int n = grid[0].length;
+		
+		int numEmpties = 0;
 		int startI = 0, startJ = 0;
 		for(int i = 0; i < m; i++) {
 			for(int j = 0; j < n; j++) {
@@ -38,7 +38,7 @@ public class Solution {
 		}
 		
 		return dfs(startI, startJ, numEmpties, grid);
-    }
+	}
 	
 	private int dfs(int i, int j, int numEmpties, int[][] grid) {
 		if(grid[i][j] == 2)

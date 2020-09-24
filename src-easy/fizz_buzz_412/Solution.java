@@ -33,7 +33,7 @@ public class Solution {
 		}
         
 		return result;
-    }
+	}
 }
 
 //	Runtime: 1 ms, faster than 99.51% of Java online submissions for Fizz Buzz.

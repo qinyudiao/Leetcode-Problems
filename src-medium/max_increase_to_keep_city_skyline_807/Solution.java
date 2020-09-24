@@ -42,8 +42,8 @@ public class Solution {
 		
 //		System.out.println(Arrays.toString(skyline_tb));
 //		System.out.println(Arrays.toString(skyline_lr));
-        return sum;
-    }
+		return sum;
+	}
 	
 	public int largest(int[] array) {
 		int largest = 0;

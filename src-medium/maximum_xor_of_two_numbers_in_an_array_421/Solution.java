@@ -63,20 +63,20 @@ public class Solution {
 		
 		for(int i = 31; i >= 0; i--) {
 			int bit = (num >> i) & 1;
-	        if (curr.children[bit] == null) {
-	          curr.children[bit] = new TrieNode(); 
-	        }
-	        curr = curr.children[bit];  
+			if (curr.children[bit] == null) {
+				curr.children[bit] = new TrieNode(); 
+			}
+			curr = curr.children[bit];  
 		}
 	}
 }
 
 class TrieNode {
-    TrieNode[] children;
-    
-    TrieNode() {
-    	children = new TrieNode[2];
-    }
+	TrieNode[] children;
+	
+	TrieNode() {
+		children = new TrieNode[2];
+	}
 }
 
 //	Runtime: 46 ms, faster than 54.99% of Java online submissions for Maximum XOR of Two Numbers in an Array.

@@ -35,7 +35,7 @@ public class Solution {
 		}
 		
 		return false;
-    }
+	}
 
 	// O(n * k)
 	public boolean containsNearbyAlmostDuplicate1(int[] nums, int k, int t) {
@@ -50,6 +50,6 @@ public class Solution {
 			}
 		}
 		
-        return false;
-    }
+		return false;
+	}
 }

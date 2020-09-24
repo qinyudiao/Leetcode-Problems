@@ -68,39 +68,38 @@ public class Solution {
 			result[i] = ans;
 		}
 		
-        return result;
-    }
+		return result;
+	}
 
 	// O(n + m) where n is the length of intervals, and m is the difference bewteen minStartPoint and maxEndPoint.
 	// this is a tradeoff, it could be faster if m is small, but could be slower or exceed VM limit when difference is large.
 	public int[] findRightInterval1(int[][] intervals) {
 		int minStartPoint = Integer.MAX_VALUE;
-        int maxEndPoint = Integer.MIN_VALUE;
-        
-        for(int i = 0; i < intervals.length; i++) {
-            minStartPoint = Math.min(minStartPoint, intervals[i][0]);
-            maxEndPoint = Math.max(maxEndPoint, intervals[i][1]);
-        }
-        
-        int[] buckets = new int[maxEndPoint - minStartPoint + 1];
-        
-        for(int i = 0; i < intervals.length; i++) {
-            buckets[intervals[i][0] - minStartPoint] = i + 1;
-        }
-        
-        for(int i = buckets.length - 2; i > -1; i--) {
-            if(buckets[i] == 0) {
-                buckets[i] = buckets[i + 1];
-            }
-        }
-        
-        int[] result = new int[intervals.length];
-        
-        for(int i = 0; i < intervals.length; i++) {
-            result[i] = buckets[intervals[i][1] - minStartPoint];
-        }
-        
-        return result;
+		int maxEndPoint = Integer.MIN_VALUE;
+
+		for(int i = 0; i < intervals.length; i++) {
+			minStartPoint = Math.min(minStartPoint, intervals[i][0]);
+			maxEndPoint = Math.max(maxEndPoint, intervals[i][1]);
+		}
+
+		int[] buckets = new int[maxEndPoint - minStartPoint + 1];
+
+		for(int i = 0; i < intervals.length; i++) {
+			buckets[intervals[i][0] - minStartPoint] = i + 1;
+		}
+
+		for(int i = buckets.length - 2; i > -1; i--) {
+			if(buckets[i] == 0) {
+				buckets[i] = buckets[i + 1];
+		}
+
+		int[] result = new int[intervals.length];
+
+		for(int i = 0; i < intervals.length; i++) {
+			result[i] = buckets[intervals[i][1] - minStartPoint];
+		}
+
+		return result;
 	}
 	
 //	Runtime: 2 ms, faster than 99.85% of Java online submissions for Find Right Interval.

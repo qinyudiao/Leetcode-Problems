@@ -23,9 +23,9 @@ public class Solution {
 	// T(n) = O(n)
 	public int fib(int N) {
 		if(N == 0)
-            return 0;
-        else if(N == 1)
-            return 1;
+			return 0;
+		else if(N == 1)
+			return 1;
 		
 		int result = 0;
 		int lastTwo = 0;
@@ -36,37 +36,37 @@ public class Solution {
 			lastOne = result;
 		}
 		
-        return result;
-    }
+		return result;
+	}
 
 	// recusive
 	// T(n) = O(2^n)
 	public int fib1(int N) {
 		if(N == 0)
-            return 0;
-        else if(N == 1)
-            return 1;
+			return 0;
+		else if(N == 1)
+			return 1;
 		
-        return fib(N - 1) + fib(N - 2);
-    }
+		return fib(N - 1) + fib(N - 2);
+	}
 	
 	// memoize
 	// T(n) = O(n)
 	public int fib2(int N) {
 		if(N == 0)
-            return 0;
+			return 0;
 		int[] memo = new int[N+1];
 		Arrays.fill(memo, -1);
 		memo[0] = 0;
 		memo[1] = 1;
-        return fib_memo(memo, N);
-    }
+		
+		return fib_memo(memo, N);
+	}
 	
 	public int fib_memo(int[] memo, int N) {
 		if(memo[N] != -1)
-        	return memo[N];
-        else
-        	return memo[N] = fib_memo(memo, N - 1) + fib_memo(memo, N - 2);
-    }
-	
+			return memo[N];
+		else
+			return memo[N] = fib_memo(memo, N - 1) + fib_memo(memo, N - 2);
+	}
 }

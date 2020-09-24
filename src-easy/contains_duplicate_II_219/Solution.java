@@ -28,7 +28,6 @@ public class Solution {
 			else
 				map.put(nums[i], i);
 		}
-		
-        return false;
-    }
+		return false;
+	}
 }

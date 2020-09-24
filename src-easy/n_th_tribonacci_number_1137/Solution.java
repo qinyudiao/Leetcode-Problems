@@ -20,9 +20,9 @@ public class Solution {
 	// T(n) = O(n)
 	public int tribonacci(int n) {
 		if(n == 0)
-            return 0;
+			return 0;
 		else if(n <= 2) // n == 1 || n == 2
-            return 1;
+			return 1;
 		
 		int result = 0;
 		int lastThree = 0;
@@ -36,8 +36,8 @@ public class Solution {
 			lastOne = result;
 		}
 //		System.out.print(" ------ ");
-        return result;
-    }
+		return result;
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for N-th Tribonacci Number.

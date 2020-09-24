@@ -36,27 +36,27 @@ public class Solution {
 
 	// O(n), where n is the largest number day in days.
 	public int mincostTickets(int[] days, int[] costs) {
-        int[] dp = new int[days[days.length-1] + 1]; // stores the optimal cost for each day
-        
-        for(int i = 0; i < days[0]; i++) {
-        	dp[i] = 0;
-        }
-        
-        for(int i = days[0], j = 0; i <= days[days.length-1]; i++) {
-	        if(i == days[j]) {
-        		int one = costs[0] + dp[i-1];
-            	int seven = costs[1] + dp[Math.max(0, i - 7)];
-            	int thirty = costs[2] + dp[Math.max(0, i - 30)];
-	        	dp[i] = Math.min(Math.min(one, seven), thirty);
-//	        	System.out.println(dp[i]);
-	        	j++;
-	        } else {
-	        	dp[i] = dp[i-1];
-	        }
-	    }
-        
-        return dp[dp.length-1];
-    }
+		int[] dp = new int[days[days.length-1] + 1]; // stores the optimal cost for each day
+
+		for(int i = 0; i < days[0]; i++) {
+			dp[i] = 0;
+		}
+
+		for(int i = days[0], j = 0; i <= days[days.length-1]; i++) {
+			if(i == days[j]) {
+				int one = costs[0] + dp[i-1];
+			int seven = costs[1] + dp[Math.max(0, i - 7)];
+			int thirty = costs[2] + dp[Math.max(0, i - 30)];
+				dp[i] = Math.min(Math.min(one, seven), thirty);
+	//	        	System.out.println(dp[i]);
+				j++;
+			} else {
+				dp[i] = dp[i-1];
+			}
+		    }
+
+		return dp[dp.length-1];
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Minimum Cost For Tickets.

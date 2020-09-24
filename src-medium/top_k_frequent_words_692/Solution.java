@@ -41,7 +41,7 @@ public class Solution {
 	// Time Complexity: O(n*log(k))
 	// Space Complexity: O(n)
 	public List<String> topKFrequent(String[] words, int k) {
-        List<String> result = new ArrayList<>();
+		List<String> result = new ArrayList<>();
 		Map<String, Integer> unsortedMap = new HashMap<>(); // O(n) space
 		// O(n) time
 		for(String word : words) {
@@ -85,7 +85,7 @@ public class Solution {
 		}
 		
 		return result;
-    }
+	}
 }
 
 //	Runtime: 7 ms, faster than 53.60% of Java online submissions for Top K Frequent Words.

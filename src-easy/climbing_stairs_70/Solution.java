@@ -19,9 +19,9 @@ public class Solution {
 	// T(n) = O(n)
 	public int climbStairs(int n) {
 		if(n == 1)
-            return 1;
-        else if(n == 2)
-            return 2;
+			return 1;
+		else if(n == 2)
+			return 2;
 		
 		int result = 0;
 		int lastTwo = 1;
@@ -32,6 +32,6 @@ public class Solution {
 			lastOne = result;
 		}
 		
-        return result;
-    }
+		return result;
+	}
 }
