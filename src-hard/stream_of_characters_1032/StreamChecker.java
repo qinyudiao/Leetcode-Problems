@@ -47,21 +47,21 @@ public class StreamChecker {
 		System.out.println(streamChecker.query('l'));          // return true, because 'kl' is in the wordlist
 	}
 	
-    public StreamChecker(String[] words) {
-    	for(String word : words) {
-    		trie.insert(word);
-    	}
-    }
+	public StreamChecker(String[] words) {
+		for(String word : words) {
+			trie.insert(word);
+		}
+	}
     
-    public boolean query(char letter) {
-    	Queue<TrieNode> queueNext = new LinkedList<>();
-    	
+	public boolean query(char letter) {
+		Queue<TrieNode> queueNext = new LinkedList<>();
+
 		queue.add(trie.getRoot());
 		TrieNode curr = null;
 		boolean isFound = false;
 		while(!queue.isEmpty()) {
 			curr = queue.poll();
-				
+
 			HashMap<Character, TrieNode> children = curr.getChildren();
 			if(children.containsKey(letter)) {
 				queueNext.add(children.get(letter));
@@ -69,10 +69,9 @@ public class StreamChecker {
 					isFound = true;
 			}
 		}
-		
-		queue.addAll(queueNext);
-		
-        return isFound;
-    }
 
+		queue.addAll(queueNext);
+
+		return isFound;
+	}
 }
