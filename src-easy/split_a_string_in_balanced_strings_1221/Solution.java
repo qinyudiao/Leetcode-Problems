@@ -18,27 +18,27 @@ public class Solution {
 		}
 	}
 	
-    public int balancedStringSplit(String s) {
-        int count = 0;
-        int count_L = 0, count_R = 0;
-        
-        for(int i = 0; i < s.length(); i += 2){
-        	if(s.charAt(i) == 'L')
-        		count_L ++;
-        	else
-        		count_R ++;
-        	
-        	if(s.charAt(i + 1) == 'L')
-        		count_L ++;
-        	else
-        		count_R ++;
-        	
-            if(count_L == count_R){
-                count++;
-            }
-        }
-        return count;
-    }
+	public int balancedStringSplit(String s) {
+		int count = 0;
+		int count_L = 0, count_R = 0;
+
+		for(int i = 0; i < s.length(); i += 2){
+			if(s.charAt(i) == 'L')
+				count_L ++;
+			else
+				count_R ++;
+
+			if(s.charAt(i + 1) == 'L')
+				count_L ++;
+			else
+				count_R ++;
+
+			if(count_L == count_R)
+				count++;
+		}
+		
+		return count;
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Split a String in Balanced Strings.
