@@ -47,6 +47,5 @@ public class Solution {
 	}
 }
 
-
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Gas Station.
 //	Memory Usage: 39.7 MB, less than 70.51% of Java online submissions for Gas Station.
