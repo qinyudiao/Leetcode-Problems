@@ -34,8 +34,8 @@ public class Solution {
 			
 //			System.out.println(Arrays.toString(A));
 		}
-        return A;
-    }
+		return A;
+	}
 }
 
 //	Runtime: 1 ms, faster than 99.69% of Java online submissions for Sort Array By Parity.
