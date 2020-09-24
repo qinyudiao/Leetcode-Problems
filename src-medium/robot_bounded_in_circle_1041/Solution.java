@@ -56,7 +56,7 @@ public class Solution {
 		}
 		
 		return direction != 0 || (x == 0 && y == 0);
-    }
+	}
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Robot Bounded In Circle.
