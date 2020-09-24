@@ -25,24 +25,24 @@ public class StreamCheckerFastest {
 		System.out.println(streamChecker.query('l'));          // return true, because 'kl' is in the wordlist
 	}
 	
-    public StreamCheckerFastest(String[] words) {
-    	for(String word : words) {
-    		trie.insertReversely(word);
-    	}
-    }
+	public StreamCheckerFastest(String[] words) {
+		for(String word : words) {
+			trie.insertReversely(word);
+		}
+	}
     
-    public boolean query(char letter) {
-        reverseStream.append(letter);
-        TrieNodeFast curr = trie.root;
-        for(int i = reverseStream.length() - 1; i >= 0; i--) {
-            char c = reverseStream.charAt(i);
-            curr = curr.children[c - 'a'];
-            if(curr == null)
-            	break;
-            if(curr.isCompleteWord) {
-                return true;
-            }
-        }
-        return false;
-    }
+	public boolean query(char letter) {
+		reverseStream.append(letter);
+		TrieNodeFast curr = trie.root;
+		for(int i = reverseStream.length() - 1; i >= 0; i--) {
+			char c = reverseStream.charAt(i);
+			curr = curr.children[c - 'a'];
+			if(curr == null)
+				break;
+			if(curr.isCompleteWord)
+				return true;
+		}
+		
+		return false;
+	}
 }
