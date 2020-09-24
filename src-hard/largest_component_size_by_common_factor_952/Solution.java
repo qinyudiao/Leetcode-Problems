@@ -25,50 +25,51 @@ public class Solution {
 	
 	// union-find solution
 	public int largestComponentSize(int[] A) {
-        Map<Integer,Integer> parent = new HashMap<>();
+		Map<Integer,Integer> parent = new HashMap<>();
 
-        // find each number's factors
-        for(int num : A) {
-            for(int factor = 2; factor*factor <= num; factor++) {
-                if(num % factor == 0){
-                    union(parent, num, factor);
-                    union(parent, num, num/factor);
-                }
-            }
-        }
+		// find each number's factors
+		for(int num : A) {
+			for(int factor = 2; factor*factor <= num; factor++) {
+				if(num % factor == 0) {
+					union(parent, num, factor);
+					union(parent, num, num/factor);
+				}
+			}
+        	}
 
-        int max = 1;
-        Map<Integer,Integer> freq = new HashMap<>();
-        for (Integer v : A) {
-            int f = find(parent, v);
-            if (freq.containsKey(f)) {
-                freq.put(f, freq.get(f) + 1);
-                max=Math.max(max,freq.get(f));
-            }
-            else freq.put(f,1);
-        }
-        
-        return max;
-    }
+		int max = 1;
+		Map<Integer,Integer> freq = new HashMap<>();
+		for (Integer v : A) {
+			int f = find(parent, v);
+			if (freq.containsKey(f)) {
+				freq.put(f, freq.get(f) + 1);
+				max = Math.max(max,freq.get(f));
+			}
+			else
+				freq.put(f,1);
+		}
+
+		return max;
+	}
     
-    public void union(Map<Integer,Integer> parent, int x, int y) {
-        int findX = find(parent, x), findY = find(parent, y);
-        if(findX < findY)
-        	parent.put(findY, findX);
-        else
-        	parent.put(findX, findY);
-    }
+	public void union(Map<Integer,Integer> parent, int x, int y) {
+		int findX = find(parent, x), findY = find(parent, y);
+		if(findX < findY)
+			parent.put(findY, findX);
+		else
+			parent.put(findX, findY);
+	}
 
-    public int find(Map<Integer,Integer> parent, Integer i) {
-        if(parent.get(i) == null)
-        	parent.put(i, i);
-        
-        while(i != parent.get(i)) {
-        	i = parent.get(i);
-        }
-        
-        return i;
-    }
+	public int find(Map<Integer,Integer> parent, Integer i) {
+		if(parent.get(i) == null)
+			parent.put(i, i);
+
+		while(i != parent.get(i)) {
+			i = parent.get(i);
+		}
+
+		return i;
+	}
 }
 
 //	Runtime: 183 ms, faster than 64.65% of Java online submissions for Largest Component Size by Common Factor.
