@@ -132,7 +132,7 @@ public class Solution {
 		}
 		
 		return result.toString();
-    }
+	}
 }
 
 //	Runtime: 2 ms, faster than 93.49% of Java online submissions for Largest Time for Given Digits.
