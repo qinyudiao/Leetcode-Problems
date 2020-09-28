@@ -1,6 +1,6 @@
 # reverse_bit_190
 
-class Solution:
+class evaluate_division_399.Solution:
     def reverseBits(self, n):
         ret, power = 0, 31
         while n:
@@ -9,5 +9,5 @@ class Solution:
             power -= 1
         return ret
 
-print(Solution.reverseBits(Solution(), 43261596)) # 964176192
-print(Solution.reverseBits(Solution(), 4294967293)) # 3221225471
+print(evaluate_division_399.Solution.reverseBits(evaluate_division_399.Solution(), 43261596)) # 964176192
+print(evaluate_division_399.Solution.reverseBits(evaluate_division_399.Solution(), 4294967293)) # 3221225471

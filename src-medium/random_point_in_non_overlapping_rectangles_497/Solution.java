@@ -20,8 +20,8 @@ import java.util.Random;
 //		7. pick is called at most 10000 times.
 
 /**
- * Your Solution object will be instantiated and called as such:
- * Solution obj = new Solution(rects);
+ * Your evaluate_division_399.Solution object will be instantiated and called as such:
+ * evaluate_division_399.Solution obj = new evaluate_division_399.Solution(rects);
  * int[] param_1 = obj.pick();
  */
 
@@ -32,7 +32,7 @@ public class Solution {
 	private List<Integer> area_index = new ArrayList<>();
 	
 //	The input is two lists: the subroutines called and their arguments. 
-//	Solution's constructor has one argument, the array of rectangles rects. 
+//	evaluate_division_399.Solution's constructor has one argument, the array of rectangles rects.
 //	pick has no arguments. Arguments are always wrapped with a list, even if there aren't any.
 	public static void main(String[] args) {
 		int[][] rects = {

@@ -68,8 +68,8 @@ public class Solution {
 }
 
 /**
- * Your Solution object will be instantiated and called as such:
- * Solution obj = new Solution(head);
+ * Your evaluate_division_399.Solution object will be instantiated and called as such:
+ * evaluate_division_399.Solution obj = new evaluate_division_399.Solution(head);
  * int param_1 = obj.getRandom();
  */
 
