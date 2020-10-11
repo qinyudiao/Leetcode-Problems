@@ -16,6 +16,9 @@ public class TreeNode {
 	}
 
 	public TreeNode(Integer[] valuesInOrder) {
+	    if(valuesInOrder.length == 0)
+	        return;
+	    
 		this.val = valuesInOrder[0];
 		this.left = insertInOrder(valuesInOrder, this.left, 1);
 		this.right = insertInOrder(valuesInOrder, this.right, 2);
