@@ -16,12 +16,11 @@ import java.util.Stack;
 //        -109 <= nums[i] <= 109
 
 public class Solution {
-    
+
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        int testCases[][] = {{1,2,3,4}, {3,1,4,2}, {-1,3,2,0}, {1,4,0,3}, {1,4,0,1}}; // false, true, true, true, false
-
+        int testCases[][] = {{1, 2, 3, 4}, {3, 1, 4, 2}, {-1, 3, 2, 0}, {1, 4, 0, 3}, {1, 4, 0, 1}}; // false, true, true, true, false
         for(int[] testCase : testCases) {
             System.out.println(solution.find132pattern(testCase));
         }
@@ -30,13 +29,13 @@ public class Solution {
     public boolean find132pattern(int[] nums) {
         if(nums.length < 3)
             return false;
-        
+
         int[] mins = new int[nums.length];
         mins[0] = nums[0];
         for(int i = 1; i < mins.length; i++) {
-            mins[i] = Math.min(mins[i-1], nums[i]);
+            mins[i] = Math.min(mins[i - 1], nums[i]);
         }
-        
+
         Stack<Integer> stack = new Stack<>();
         for(int i = nums.length - 1; i >= 0; i--) {
             if(nums[i] > mins[i]) {
@@ -48,7 +47,7 @@ public class Solution {
                 stack.push(nums[i]);
             }
         }
-        
+
         return false;
     }
 }
