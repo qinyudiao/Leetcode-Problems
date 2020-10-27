@@ -43,18 +43,17 @@ public class Solution {
     
     // Idea: use two pointers to track nodes in the list at a different speed, 
     // if there's a cycle, two pointers will eventually stop at the same node.
+    // T(n) = O(n).
+    // S(n) = O(1).
     public boolean hasCycle(ListNode head) {
-        if(head == null)
-            return false;
-        
         ListNode slow = head;
-        ListNode fast = head.next;
-        while(slow != fast) {
+        ListNode fast = head;
+        do {
             if(fast == null || fast.next == null)
                 return false;
             slow = slow.next;
             fast = fast.next.next;
-        }
+        } while(slow != fast);
         
         return true;
     }
