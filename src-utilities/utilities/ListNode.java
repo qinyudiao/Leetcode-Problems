@@ -42,13 +42,6 @@ public class ListNode {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder().append("{").append(this.val);
-        ListNode current = this;
-        while(current.next != null) {
-            current = current.next;
-            sb.append(", ").append(current.val);
-        }
-
-        return sb.append("}").toString();
+        return new StringBuilder().append("{val: ").append(this.val).append(", next_val: ").append(this.next.val).append("}").toString();
     }
 }
