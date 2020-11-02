@@ -23,21 +23,24 @@ import utilities.TreeNode;
 //        The input tree is guaranteed to be a binary search tree.
 
 public class Codec {
-
+    
     public static void main(String[] args) {
         Codec ser = new Codec();
         Codec deser = new Codec();
         
-        TreeNode root = new TreeNode(new Integer[] {41,6,8469,0,22,6336,9177,null,3,15,31,5734,6509,8770,9379,2,4,10,20,28,39,1490,5775,6410,6986,8493,8823,9298,9975,1,null,null,5,8,12,16,21,26,29,34,40,506,4491,5737,6034,6384,6434,6853,8178,8492,8503,8779,9106,9283,9339,9774,9982,null,null,null,null,7,9,11,13});
+        TreeNode root = new TreeNode(new Integer[] {41, 6, 8469, 0, 22, 6336, 9177, null, 3, 15, 31, 5734, 6509, 8770, 9379, 2, 4, 10, 20, 28, 39,
+                1490, 5775, 6410, 6986, 8493, 8823, 9298, 9975, 1, null, null, 5, 8, 12, 16, 21, 26, 29, 34, 40, 506, 4491, 5737, 6034, 6384, 6434,
+                6853, 8178, 8492, 8503, 8779, 9106, 9283, 9339, 9774, 9982, null, null, null, null, 7, 9, 11, 13});
         String tree = ser.serialize(root);
         TreeNode ans = deser.deserialize(tree);
         System.out.println(tree);
         System.out.println(ans.toStringBFS());
     }
-
+    
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        if(root == null) return "";
+        if(root == null)
+            return "";
         
         StringBuilder sb = new StringBuilder("");
         
@@ -57,7 +60,7 @@ public class Codec {
         
         return sb.toString();
     }
-
+    
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
         if(data == "")

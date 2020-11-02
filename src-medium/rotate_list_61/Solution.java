@@ -5,10 +5,10 @@ import utilities.ListNode;
 //    Given a linked list, rotate the list to the right by k places, where k is non-negative.
 
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
+        
         Integer[][] testCasesLists = {{1, 2, 3, 4, 5, null}, {0, 1, 2, null}, {1}, {1, 2, 3}}; // {4, 5, 1, 2, 3}, {2, 0, 1}, {1}
         int[] testCasesK = {2, 4, 6, 1, 1};
         for(int i = 0; i < testCasesLists.length; i++) {
@@ -17,13 +17,13 @@ public class Solution {
             System.out.println("After: " + solution.rotateRight(node, testCasesK[i]).toStringInOrder());
         }
     }
-
+    
     // Idea: Find the new Tail and break its link to the next node, then link the
     // original Tail to the original Head.
     public ListNode rotateRight(ListNode head, int k) {
         if(head == null)
             return null;
-
+        
         int size = 1;
         ListNode newTail = head;
         while(newTail.next != null) {
@@ -37,10 +37,10 @@ public class Solution {
             else
                 newTail = head;
         }
-
+        
         if(newTail.next == null) // If the newTail is the same as the old Tail, return the head.
             return head;
-
+        
         ListNode newHead = newTail.next;
         ListNode curr = newHead;
         newTail.next = null;
@@ -50,7 +50,7 @@ public class Solution {
             }
             curr.next = head;
         }
-
+        
         return newHead;
     }
 }

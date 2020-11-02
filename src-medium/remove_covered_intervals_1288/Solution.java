@@ -15,17 +15,20 @@ import java.util.Arrays;
 
 //        All the intervals are unique.
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
-        int[][][] testCases = {{{1, 4}, {3, 6}, {2, 8}}, {{1, 4}, {2, 3}}, {{0, 10}, {5, 12}},
-                {{3, 10}, {4, 10}, {5, 11}}, {{1, 2}, {1, 4}, {3, 4}}}; // 2, 1, 2, 2, 1
+        
+        int[][][] testCases = {{{1, 4}, {3, 6}, {2, 8}}, {{1, 4}, {2, 3}}, {{0, 10}, {5, 12}}, {{3, 10}, {4, 10}, {5, 11}}, {{1, 2}, {1, 4}, {3, 4}}}; // 2,
+                                                                                                                                                       // 1,
+                                                                                                                                                       // 2,
+                                                                                                                                                       // 2,
+                                                                                                                                                       // 1
         for(int[][] testCase : testCases) {
             System.out.println(solution.removeCoveredIntervals(testCase));
         }
     }
-
+    
     // Idea: Sort intervals based on start time. If the two intervals have the same
     // start time, the longer goes first. Then do a greedy approach to find all the
     // intervals to remove.
@@ -34,7 +37,7 @@ public class Solution {
     public int removeCoveredIntervals(int[][] intervals) {
         if(intervals.length < 2)
             return 0;
-
+        
         Arrays.sort(intervals, (interval1, interval2) -> {
             if(interval1[0] < interval2[0])
                 return -1;
@@ -49,7 +52,7 @@ public class Solution {
                     return 0;
             }
         });
-
+        
         int result = intervals.length;
         int lastEndIndex = intervals[0][1];
         for(int i = 1; i < intervals.length; i++) {
@@ -58,7 +61,7 @@ public class Solution {
             else
                 lastEndIndex = intervals[i][1];
         }
-
+        
         return result;
     }
 }

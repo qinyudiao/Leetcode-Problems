@@ -13,28 +13,28 @@ package teemo_attacking_495;
 //		and his poisoning time duration per attacking are non-negative integers, which won't exceed 10,000,000.
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-
-		int[][] testCasesTimeSeries = {{1, 4}, {1, 2}, {2}}; // 4, 3, 5
-		int[] testCasesDuration = {2, 2, 5};
-		for(int i = 0; i < testCasesTimeSeries.length; i++) {
-			System.out.println(solution.findPoisonedDuration(testCasesTimeSeries[i], testCasesDuration[i]));	
-		}
-	}
-
-	public int findPoisonedDuration(int[] timeSeries, int duration) {
-		if(timeSeries == null || timeSeries.length == 0)
-			return 0;
-		
-		int totalDuration = 0;
-		for(int i = 0; i < timeSeries.length - 1; i++) {
-			totalDuration += Math.min(duration, timeSeries[i+1] - timeSeries[i]);
-		}
-		
-		return totalDuration + duration;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        int[][] testCasesTimeSeries = {{1, 4}, {1, 2}, {2}}; // 4, 3, 5
+        int[] testCasesDuration = {2, 2, 5};
+        for(int i = 0; i < testCasesTimeSeries.length; i++) {
+            System.out.println(solution.findPoisonedDuration(testCasesTimeSeries[i], testCasesDuration[i]));
+        }
+    }
+    
+    public int findPoisonedDuration(int[] timeSeries, int duration) {
+        if(timeSeries == null || timeSeries.length == 0)
+            return 0;
+        
+        int totalDuration = 0;
+        for(int i = 0; i < timeSeries.length - 1; i++) {
+            totalDuration += Math.min(duration, timeSeries[i + 1] - timeSeries[i]);
+        }
+        
+        return totalDuration + duration;
+    }
 }
 
 //	Runtime: 1 ms, faster than 100.00% of Java online submissions for Teemo Attacking.

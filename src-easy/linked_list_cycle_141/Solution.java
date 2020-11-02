@@ -41,7 +41,7 @@ public class Solution {
         System.out.println(solution.hasCycle(head3));
     }
     
-    // Idea: use two pointers to track nodes in the list at a different speed, 
+    // Idea: use two pointers to track nodes in the list at a different speed,
     // if there's a cycle, two pointers will eventually stop at the same node.
     // T(n) = O(n).
     // S(n) = O(1).

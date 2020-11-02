@@ -13,19 +13,20 @@ package binary_search_704;
 //        1. You may assume that all elements in nums are unique.
 //        2. n will be in the range [1, 10000].
 //        3. The value of each element in nums will be in the range [-9999, 9999].
-        
+
 public class Solution {
     
     public static void main(String[] args) {
         Solution solution = new Solution();
-
-        int[][] testCasesNums = {{-1,0,3,5,9,12}, {-1,0,3,5,9,12}, {2, 5}, {-1,0,3,5,9,12}, {-1,0,3,5,9,12}, {5}}; // 4, -1, 0, 2, -1, 0
+        
+        int[][] testCasesNums = {{-1, 0, 3, 5, 9, 12}, {-1, 0, 3, 5, 9, 12}, {2, 5}, {-1, 0, 3, 5, 9, 12}, {-1, 0, 3, 5, 9, 12}, {5}}; // 4, -1, 0, 2,
+                                                                                                                                       // -1, 0
         int[] testCasesTargets = {9, 2, 2, 3, 13, 5};
         for(int i = 0; i < testCasesNums.length; i++) {
             System.out.println(solution.search(testCasesNums[i], testCasesTargets[i]));
         }
     }
-
+    
     public int search(int[] nums, int target) {
         if(nums.length == 0)
             return -1;

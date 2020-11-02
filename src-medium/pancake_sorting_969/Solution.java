@@ -20,60 +20,62 @@ import java.util.List;
 //		All integers in A are unique (i.e. A is a permutation of the integers from 1 to A.length).
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-		
-		int[][] testCases = {{3, 2, 4, 1}, {1, 2, 3}, {1, 2, 4, 4, 5, 6}, {1, 0 ,3 ,5}, {3, 1, 2, 4}}; // [3, 2, 4, 1] (3, 4, 2, 3, 2)-> [4, 2, 3, 1], [1, 3, 2, 4], [3, 1, 2, 4], [2, 1, 3, 4], [1, 2, 3, 4]
-		for(int[] testCase : testCases) {
-			System.out.println(solution.pancakeSort(testCase));	
-		}
-
-	}
-
-	// idea: find the max -> flip max to 0 -> then flip max to the end of the unsorted array. The array is sorted from back to front.
-	// O(n^2), where n is A.length
-	public List<Integer> pancakeSort(int[] A) {
-		List<Integer> result = new ArrayList<>();
-		int[] arr = A;
-		for(int j = A.length - 1; j > 0 ; j--) {
-			int maxIndex = maxIndex(Arrays.copyOfRange(arr, 0, j + 1));
-			if(maxIndex == 0) {
-				result.add(j + 1);
-				arr = flipSubArrayFrom0(arr, j);
-			}
-			else if(maxIndex < j) {
-				result.add(maxIndex + 1);
-				result.add(j + 1);
-				arr = flipSubArrayFrom0(arr, maxIndex);
-				arr = flipSubArrayFrom0(arr, j);
-			}
-		}
-
-		return result;
-	}
-	
-	public int[] flipSubArrayFrom0(int[] arr, int to) {
-		for(int i = 0, j = to; i < j; i++, j--) {
-			int temp = arr[j];
-			arr[j] = arr[i];
-			arr[i] = temp;
-		}
-		
-		return arr;
-	}
-	
-	public int maxIndex(int[] arr) {
-		int maxIndex = 0;
-		for(int i = 1; i < arr.length; i++) {
-			if(arr[i] > arr[maxIndex])
-				maxIndex = i;
-		}
-		
-		return maxIndex;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        int[][] testCases = {{3, 2, 4, 1}, {1, 2, 3}, {1, 2, 4, 4, 5, 6}, {1, 0, 3, 5}, {3, 1, 2, 4}}; // [3, 2, 4, 1] (3, 4, 2, 3, 2)-> [4, 2, 3, 1],
+                                                                                                       // [1, 3, 2, 4], [3, 1, 2, 4], [2, 1, 3, 4],
+                                                                                                       // [1, 2, 3, 4]
+        for(int[] testCase : testCases) {
+            System.out.println(solution.pancakeSort(testCase));
+        }
+        
+    }
+    
+    // idea: find the max -> flip max to 0 -> then flip max to the end of the
+    // unsorted array. The array is sorted from back to front.
+    // O(n^2), where n is A.length
+    public List<Integer> pancakeSort(int[] A) {
+        List<Integer> result = new ArrayList<>();
+        int[] arr = A;
+        for(int j = A.length - 1; j > 0; j--) {
+            int maxIndex = maxIndex(Arrays.copyOfRange(arr, 0, j + 1));
+            if(maxIndex == 0) {
+                result.add(j + 1);
+                arr = flipSubArrayFrom0(arr, j);
+            }
+            else if(maxIndex < j) {
+                result.add(maxIndex + 1);
+                result.add(j + 1);
+                arr = flipSubArrayFrom0(arr, maxIndex);
+                arr = flipSubArrayFrom0(arr, j);
+            }
+        }
+        
+        return result;
+    }
+    
+    public int[] flipSubArrayFrom0(int[] arr, int to) {
+        for(int i = 0, j = to; i < j; i++, j--) {
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+        
+        return arr;
+    }
+    
+    public int maxIndex(int[] arr) {
+        int maxIndex = 0;
+        for(int i = 1; i < arr.length; i++) {
+            if(arr[i] > arr[maxIndex])
+                maxIndex = i;
+        }
+        
+        return maxIndex;
+    }
 }
 
 //	Runtime: 1 ms, faster than 100.00% of Java online submissions for Pancake Sorting.
 //	Memory Usage: 39.7 MB, less than 62.58% of Java online submissions for Pancake Sorting.
-

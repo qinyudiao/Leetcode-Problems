@@ -10,18 +10,19 @@ package subArray_product_less_than_k_713;
 //        0 <= k < 10^6.
 
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
         
-        int[][] testCasesNums = { { 10, 5, 2, 6 }, {1, 1, 8, 1, 1, 7, 1, 1, 6, 1, 1}, {1, 2, 3}}; // 8, 12
-        int[] testCasesK = { 100, 5, 0};
+        int[][] testCasesNums = {{10, 5, 2, 6}, {1, 1, 8, 1, 1, 7, 1, 1, 6, 1, 1}, {1, 2, 3}}; // 8, 12
+        int[] testCasesK = {100, 5, 0};
         for(int i = 0; i < testCasesNums.length; i++) {
             System.out.println(solution.numSubarrayProductLessThanK1(testCasesNums[i], testCasesK[i]));
         }
     }
-
-    // Idea: Use two pointers i and j to track the continous subarray. i is the first element, and j is the ending index.
+    
+    // Idea: Use two pointers i and j to track the continous subarray. i is the
+    // first element, and j is the ending index.
     // Approach: update count when j increases
     // T(n) = O(n), where n is the length of nums.
     public int numSubarrayProductLessThanK(int[] nums, int k) {
@@ -29,7 +30,7 @@ public class Solution {
         int product = 1;
         for(int i = 0, j = 0; j < nums.length; j++) {
             product *= nums[j];
-            for(; product >= k && i <= j; i++) {    
+            for(; product >= k && i <= j; i++) {
                 product /= nums[i];
             }
             result += j + 1 - i;
@@ -38,7 +39,8 @@ public class Solution {
         return result;
     }
     
-    // Idea: Use two pointers i and j to track the continous subarray. i is the first element, and j is the ending index.
+    // Idea: Use two pointers i and j to track the continous subarray. i is the
+    // first element, and j is the ending index.
     // Approach: update count when i increases
     // T(n) = O(n), where n is the length of nums.
     public int numSubarrayProductLessThanK1(int[] nums, int k) {

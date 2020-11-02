@@ -8,27 +8,27 @@ package length_of_last_word_58;
 //	Note: A word is defined as a maximal substring consisting of non-space characters only.
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-		
-		String[] testCases = {"Hello World", "world", "", " ", "a "}; // 5, 5, 0, 0
-		for(String testCase : testCases) {
-			System.out.println(solution.lengthOfLastWord(testCase));
-		}
-	}
-	
-	public int lengthOfLastWord(String s) {
-		int length = 0;
-		for(int i = s.length() - 1; i >= 0; i--) {
-			if(s.charAt(i) == ' ' && length == 0)
-				continue;
-			else if(s.charAt(i) == ' ')
-				break;
-			else
-				length++;
-		}
-
-		return length;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        String[] testCases = {"Hello World", "world", "", " ", "a "}; // 5, 5, 0, 0
+        for(String testCase : testCases) {
+            System.out.println(solution.lengthOfLastWord(testCase));
+        }
+    }
+    
+    public int lengthOfLastWord(String s) {
+        int length = 0;
+        for(int i = s.length() - 1; i >= 0; i--) {
+            if(s.charAt(i) == ' ' && length == 0)
+                continue;
+            else if(s.charAt(i) == ' ')
+                break;
+            else
+                length++;
+        }
+        
+        return length;
+    }
 }

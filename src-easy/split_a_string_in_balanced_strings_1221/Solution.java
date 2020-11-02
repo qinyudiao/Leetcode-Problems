@@ -7,38 +7,38 @@ package split_a_string_in_balanced_strings_1221;
 //	Return the maximum amount of splitted balanced strings.
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-		
-		String[] testCases = {"RLRRLLRLRL", "RLLLLRRRLR", "LLLLRRRR", "RLRRRLLRLL"}; // 4, 3, 1, 2
-		
-		for(String testCase : testCases) {
-			System.out.println(solution.balancedStringSplit(testCase));	
-		}
-	}
-	
-	public int balancedStringSplit(String s) {
-		int count = 0;
-		int count_L = 0, count_R = 0;
-
-		for(int i = 0; i < s.length(); i += 2){
-			if(s.charAt(i) == 'L')
-				count_L ++;
-			else
-				count_R ++;
-
-			if(s.charAt(i + 1) == 'L')
-				count_L ++;
-			else
-				count_R ++;
-
-			if(count_L == count_R)
-				count++;
-		}
-		
-		return count;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        String[] testCases = {"RLRRLLRLRL", "RLLLLRRRLR", "LLLLRRRR", "RLRRRLLRLL"}; // 4, 3, 1, 2
+        
+        for(String testCase : testCases) {
+            System.out.println(solution.balancedStringSplit(testCase));
+        }
+    }
+    
+    public int balancedStringSplit(String s) {
+        int count = 0;
+        int count_L = 0, count_R = 0;
+        
+        for(int i = 0; i < s.length(); i += 2) {
+            if(s.charAt(i) == 'L')
+                count_L++;
+            else
+                count_R++;
+            
+            if(s.charAt(i + 1) == 'L')
+                count_L++;
+            else
+                count_R++;
+            
+            if(count_L == count_R)
+                count++;
+        }
+        
+        return count;
+    }
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Split a String in Balanced Strings.

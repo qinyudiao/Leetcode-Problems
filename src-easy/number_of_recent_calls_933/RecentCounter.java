@@ -19,20 +19,20 @@ import java.util.Queue;
 
 class RecentCounter {
     Queue<Integer> validCalls;
-
+    
     public RecentCounter() {
         validCalls = new LinkedList<Integer>();
     }
-
+    
     public int ping(int t) {
         // add the latest call
         validCalls.add(t);
-
+        
         // remove the old calls that is not valid anymore
         while(validCalls.peek() < t - 3000) {
             validCalls.remove();
         }
-
+        
         return validCalls.size();
     }
 }

@@ -19,39 +19,39 @@ package compare_version_numbers_165;
 //		2. Version strings do not start or end with dots, and they will not be two consecutive dots.
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-		String[] testCasesVersion1 = {"0.1", "1.0.1", "7.5.2.4", "1.01", "1.0", "0.9.9.9.9.9.9.9.9.9.9.9.9"}; // -1, 1, -1, 0, 0, -1
-		String[] testCasesVersion2 = {"1.1", "1", "7.5.3", "1.001", "1.0.0", "1.0"};
-		
-		for(int i = 0; i < testCasesVersion1.length; i++) {
-			System.out.println(solution.compareVersion(testCasesVersion1[i], testCasesVersion2[i]));
-		}
-	}
-
-	public int compareVersion(String version1, String version2) {
-		String[] strV1 = version1.split("\\.");
-		String[] strV2 = version2.split("\\.");
-		int numLevels = Math.max(strV1.length, strV2.length);
-		int[] numV1 = new int[numLevels];
-		int[] numV2 = new int[numLevels];
-		for(int i = 0; i < strV1.length; i++) {
-			numV1[i] = Integer.parseInt(strV1[i]);
-		}
-		for(int i = 0; i < strV2.length; i++) {
-			numV2[i] = Integer.parseInt(strV2[i]);
-		}
-		
-		for(int i = 0; i < numLevels; i++) {
-			if(numV1[i] > numV2[i])
-				return 1;
-			else if(numV1[i] < numV2[i])
-				return -1;
-		}
-		
-		return 0;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String[] testCasesVersion1 = {"0.1", "1.0.1", "7.5.2.4", "1.01", "1.0", "0.9.9.9.9.9.9.9.9.9.9.9.9"}; // -1, 1, -1, 0, 0, -1
+        String[] testCasesVersion2 = {"1.1", "1", "7.5.3", "1.001", "1.0.0", "1.0"};
+        
+        for(int i = 0; i < testCasesVersion1.length; i++) {
+            System.out.println(solution.compareVersion(testCasesVersion1[i], testCasesVersion2[i]));
+        }
+    }
+    
+    public int compareVersion(String version1, String version2) {
+        String[] strV1 = version1.split("\\.");
+        String[] strV2 = version2.split("\\.");
+        int numLevels = Math.max(strV1.length, strV2.length);
+        int[] numV1 = new int[numLevels];
+        int[] numV2 = new int[numLevels];
+        for(int i = 0; i < strV1.length; i++) {
+            numV1[i] = Integer.parseInt(strV1[i]);
+        }
+        for(int i = 0; i < strV2.length; i++) {
+            numV2[i] = Integer.parseInt(strV2[i]);
+        }
+        
+        for(int i = 0; i < numLevels; i++) {
+            if(numV1[i] > numV2[i])
+                return 1;
+            else if(numV1[i] < numV2[i])
+                return -1;
+        }
+        
+        return 0;
+    }
 }
 
 //	Runtime: 1 ms, faster than 92.95% of Java online submissions for Compare Version Numbers.

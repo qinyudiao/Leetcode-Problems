@@ -9,43 +9,43 @@ package detect_capital_use_520;
 //	Otherwise, we define that this word doesn't use capitals in a right way.
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-		
-		String[] testCases = {"USA", "FLaG", "leetcode", "Google"}; // true, false, true, true
-		for(String testCase : testCases) {
-			System.out.println(solution.detectCapitalUse(testCase));	
-		}
-	}
-	
-	public boolean detectCapitalUse(String word) {
-		if(word.length() == 1)
-			return true;
-		
-		if(Character.isUpperCase(word.charAt(0))) { // true: upper, false: lower
-			if(Character.isUpperCase(word.charAt(1))) {
-				for (int i = 2; i < word.length(); i++) { 
-					if(!Character.isUpperCase(word.charAt(i)))
-						return false;
-				}
-			}
-			else {
-				for (int i = 2; i < word.length(); i++) { 
-					if(Character.isUpperCase(word.charAt(i)))
-						return false;
-				}
-			}
-		}
-		else {
-			for (int i = 1; i < word.length(); i++) { 
-				if(Character.isUpperCase(word.charAt(i)))
-					return false;
-			}
-		}
-		
-		return true;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        String[] testCases = {"USA", "FLaG", "leetcode", "Google"}; // true, false, true, true
+        for(String testCase : testCases) {
+            System.out.println(solution.detectCapitalUse(testCase));
+        }
+    }
+    
+    public boolean detectCapitalUse(String word) {
+        if(word.length() == 1)
+            return true;
+        
+        if(Character.isUpperCase(word.charAt(0))) { // true: upper, false: lower
+            if(Character.isUpperCase(word.charAt(1))) {
+                for(int i = 2; i < word.length(); i++) {
+                    if(!Character.isUpperCase(word.charAt(i)))
+                        return false;
+                }
+            }
+            else {
+                for(int i = 2; i < word.length(); i++) {
+                    if(Character.isUpperCase(word.charAt(i)))
+                        return false;
+                }
+            }
+        }
+        else {
+            for(int i = 1; i < word.length(); i++) {
+                if(Character.isUpperCase(word.charAt(i)))
+                    return false;
+            }
+        }
+        
+        return true;
+    }
 }
 
 //	Runtime: 1 ms, faster than 99.53% of Java online submissions for Detect Capital.

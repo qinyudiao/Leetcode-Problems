@@ -10,16 +10,16 @@ import java.util.Stack;
 //        s consists of lowercase English letters.
 
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
+        
         String[] testCases = {"bcabc", "cbacdcbc"}; // "abc", "acdb"
         for(String testCase : testCases) {
             System.out.println(solution.removeDuplicateLetters(testCase));
         }
     }
-
+    
     public String removeDuplicateLetters(String s) {
         int[] lastIndex = new int[26];
         for(int i = 0; i < s.length(); i++) {
@@ -49,4 +49,3 @@ public class Solution {
 
 //    Runtime: 2 ms, faster than 92.21% of Java online submissions for Remove Duplicate Letters.
 //    Memory Usage: 38.7 MB, less than 8.85% of Java online submissions for Remove Duplicate Letters.
-

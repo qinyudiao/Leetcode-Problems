@@ -14,17 +14,17 @@ package battleships_in_a_board_419;
 //        Could you do it in one-pass, using only O(1) extra memory and without modifying the value of the board?
 
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
+        
         char[][][] testCases = {{{'X', '.', 'X', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}},
                 {{'.', '.', '.', 'X'}, {'X', 'X', 'X', '.'}, {'.', '.', '.', 'X'}}}; // 2, 3
         for(char[][] testCase : testCases) {
             System.out.println(solution.countBattleships(testCase));
         }
     }
-
+    
     public int countBattleships(char[][] board) {
         int count = 0;
         for(int i = 0; i < board.length; i++) {

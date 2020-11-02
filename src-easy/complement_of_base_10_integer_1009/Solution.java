@@ -8,19 +8,20 @@ package complement_of_base_10_integer_1009;
 //    For example, the complement of "101" in binary is "010" in binary.
 //    
 //    For a given number N in base-10, return the complement of it's binary representation as a base-10 integer.
-        
-public class Solution {
 
+public class Solution {
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
+        
         int[] testCases = {5, 7, 10, 0}; // 2, 0, 5, 1
         for(int testCase : testCases) {
             System.out.println(solution.bitwiseComplement(testCase));
         }
     }
     
-    // The complement number is the xor of N and the max value(Unsigned) with the same highestOneBit.
+    // The complement number is the xor of N and the max value(Unsigned) with the
+    // same highestOneBit.
     // For example: 101 ^ 111 = 010.
     // Mask = 2 * Integer.highestOneBit(N) - 1.
     // Edge case: when N is 0, the mask should be 1.

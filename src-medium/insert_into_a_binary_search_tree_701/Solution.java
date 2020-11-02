@@ -18,12 +18,11 @@ import utilities.TreeNode;
 //        It's guaranteed that val does not exist in the original BST.
 
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
-        Integer[][] testCasesRoots = {{4, 2, 7, 1, 3}, {40, 20, 60, 10, 30, 50, 70},
-                {4, 2, 7, 1, 3, null, null, null, null, null, null},
+        
+        Integer[][] testCasesRoots = {{4, 2, 7, 1, 3}, {40, 20, 60, 10, 30, 50, 70}, {4, 2, 7, 1, 3, null, null, null, null, null, null},
                 {5, null, 14, null, null, 10, 77, null, null, null, null, null, null, 95, null, null}};
         int[] testCasesVals = {5, 25, 5, 4};
         for(int i = 0; i < testCasesRoots.length; i++) {
@@ -32,23 +31,24 @@ public class Solution {
             System.out.println("After: " + solution.insertIntoBST(root, testCasesVals[i]).toStringBFS());
         }
     }
-
+    
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if(root == null)
             return new TreeNode(val);
         
         insert(root, val);
-
+        
         return root;
     }
-
+    
     public void insert(TreeNode root, int val) {
         if(val < root.val) {
             if(root.left == null)
                 root.left = new TreeNode(val);
             else
                 insert(root.left, val);
-        } else {
+        }
+        else {
             if(root.right == null)
                 root.right = new TreeNode(val);
             else

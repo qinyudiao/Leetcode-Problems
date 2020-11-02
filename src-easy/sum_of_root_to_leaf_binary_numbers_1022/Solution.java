@@ -17,52 +17,43 @@ import utilities.TreeNode;
 //		3. The answer will not exceed 2^31 - 1.
 
 /**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
+ * Definition for a binary tree node. public class TreeNode { int val; TreeNode
+ * left; TreeNode right; TreeNode() {} TreeNode(int val) { this.val = val; }
+ * TreeNode(int val, TreeNode left, TreeNode right) { this.val = val; this.left
+ * = left; this.right = right; } }
  */
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-		
-		Integer[][] testCases = {{1, 0, 1, 0, 1, 0, 1}};
-		for(Integer[] testCase : testCases) {
-			TreeNode root = new TreeNode(testCase);
-			System.out.println(root.toStringBFS());
-			System.out.println(solution.sumRootToLeaf(root));
-		}
-	}
-
-	// Idea: recursive dfs.
-	// T(n): O(n), where n is the number of nodes.
-	// S(n): O(n).
-	public int sumRootToLeaf(TreeNode root) {
-		return sumRootToLeafDFS(root, 0);
-	}
-	
-	public int sumRootToLeafDFS(TreeNode root, int base) {
-		int sum = 0;
-		base = (base << 1) + root.val;
-		if(root.left != null)
-			sum += sumRootToLeafDFS(root.left, base); 
-		if(root.right != null)
-			sum += sumRootToLeafDFS(root.right, base);
-		else if(root.left == null)
-			sum += base;
-		return sum;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        Integer[][] testCases = {{1, 0, 1, 0, 1, 0, 1}};
+        for(Integer[] testCase : testCases) {
+            TreeNode root = new TreeNode(testCase);
+            System.out.println(root.toStringBFS());
+            System.out.println(solution.sumRootToLeaf(root));
+        }
+    }
+    
+    // Idea: recursive dfs.
+    // T(n): O(n), where n is the number of nodes.
+    // S(n): O(n).
+    public int sumRootToLeaf(TreeNode root) {
+        return sumRootToLeafDFS(root, 0);
+    }
+    
+    public int sumRootToLeafDFS(TreeNode root, int base) {
+        int sum = 0;
+        base = (base << 1) + root.val;
+        if(root.left != null)
+            sum += sumRootToLeafDFS(root.left, base);
+        if(root.right != null)
+            sum += sumRootToLeafDFS(root.right, base);
+        else if(root.left == null)
+            sum += base;
+        return sum;
+    }
 }
 
 //	Runtime: 0 ms, faster than 100.00% of Java online submissions for Sum of Root To Leaf Binary Numbers.

@@ -17,14 +17,14 @@ public class Solution {
     
     public static void main(String[] args) {
         Solution solution = new Solution();
-
+        
         String[] testCasesA = {"ab", "ab", "aa", "aaaaaaabc", "", "abac"}; // true, false, true, true, false, false
         String[] testCasesB = {"ba", "ab", "aa", "aaaaaaacb", "aa", "abad"};
         for(int i = 0; i < testCasesA.length; i++) {
             System.out.println(solution.buddyStrings(testCasesA[i], testCasesB[i]));
         }
     }
-
+    
     public boolean buddyStrings(String A, String B) {
         if(A.length() != B.length() || A.length() < 2 || B.length() < 2)
             return false;
@@ -33,7 +33,7 @@ public class Solution {
             boolean[] isInB = new boolean[26];
             for(int i = 0; i < A.length(); i++) {
                 int c = B.charAt(i) - 'a';
-                if(isInB[c]) 
+                if(isInB[c])
                     return true;
                 else
                     isInB[c] = true;
@@ -54,7 +54,7 @@ public class Solution {
                         if(a1 != b2 || a2 != b1)
                             return false;
                     }
-                    else 
+                    else
                         return false;
                 }
             }
@@ -65,4 +65,3 @@ public class Solution {
 
 //    Runtime: 1 ms, faster than 99.31% of Java online submissions for Buddy Strings.
 //    Memory Usage: 38.9 MB, less than 7.76% of Java online submissions for Buddy Strings.
-

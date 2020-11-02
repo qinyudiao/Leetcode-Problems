@@ -8,35 +8,35 @@ package cells_with_odd_values_in_a_matrix_1252;
 //	Return the number of cells with odd values in the matrix after applying the increment to all indices.
 
 public class Solution {
-
-	public static void main(String[] args) {
-		Solution solution = new Solution();
-		System.out.println(solution.oddCells(2, 3, new int[][] {{0, 1}, {1, 1}}));
-	}
-	
-	public int oddCells(int n, int m, int[][] indices) {
-		int[][] matrix =  new int[n][m];
-		
-		for(int[] index : indices) {
-			for(int i = 0; i < matrix[index[0]].length; i++) {
-				matrix[index[0]][i]++;
-			}
-			for(int[] row: matrix) {
-				row[index[1]]++;
-			}
-		}
-
-		int count = 0;
-
-		for(int[] row : matrix) {
-			for(int i : row) {
-				if((i % 2) == 1)
-					count++;
-			}
-		}
-
-		return count;
-	}
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.oddCells(2, 3, new int[][] {{0, 1}, {1, 1}}));
+    }
+    
+    public int oddCells(int n, int m, int[][] indices) {
+        int[][] matrix = new int[n][m];
+        
+        for(int[] index : indices) {
+            for(int i = 0; i < matrix[index[0]].length; i++) {
+                matrix[index[0]][i]++;
+            }
+            for(int[] row : matrix) {
+                row[index[1]]++;
+            }
+        }
+        
+        int count = 0;
+        
+        for(int[] row : matrix) {
+            for(int i : row) {
+                if((i % 2) == 1)
+                    count++;
+            }
+        }
+        
+        return count;
+    }
 }
 
 //	Runtime: 1 ms, faster than 90.29% of Java online submissions for Cells with Odd Values in a Matrix.

@@ -18,18 +18,21 @@ import java.util.Set;
 //        0 <= k <= 107
 
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
-        int[][] testCasesNums = {{3, 1, 4, 1, 5}, {1, 2, 3, 4, 5}, {1, 3, 1, 5, 4}, {1, 2, 4, 4, 3, 3, 0, 9, 2, 3},
-                {-1, -2, -3}, {1,1,1,1,1}}; // 2, 4, 1, 2, 2
+        
+        int[][] testCasesNums = {{3, 1, 4, 1, 5}, {1, 2, 3, 4, 5}, {1, 3, 1, 5, 4}, {1, 2, 4, 4, 3, 3, 0, 9, 2, 3}, {-1, -2, -3}, {1, 1, 1, 1, 1}}; // 2,
+                                                                                                                                                    // 4,
+                                                                                                                                                    // 1,
+                                                                                                                                                    // 2,
+                                                                                                                                                    // 2
         int[] testCasesK = {2, 1, 0, 3, 1, 0};
         for(int i = 0; i < testCasesNums.length; i++) {
             System.out.println(solution.findPairs(testCasesNums[i], testCasesK[i]));
         }
     }
-
+    
     public int findPairs(int[] nums, int k) {
         if(nums.length < 2)
             return 0;

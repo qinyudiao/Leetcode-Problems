@@ -3,18 +3,19 @@ package utilities;
 public class ListNode {
     public int val;
     public ListNode next;
-
-    public ListNode() {}
-
+    
+    public ListNode() {
+    }
+    
     public ListNode(int val) {
         this.val = val;
     }
-
+    
     public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
-
+    
     public ListNode(Integer[] vals) {
         if(vals == null || vals.length == 0)
             return;
@@ -28,7 +29,7 @@ public class ListNode {
             current = next;
         }
     }
-
+    
     public String toStringInOrder() {
         StringBuilder sb = new StringBuilder().append("{").append(this.val);
         ListNode current = this;
@@ -36,10 +37,10 @@ public class ListNode {
             current = current.next;
             sb.append(", ").append(current.val);
         }
-
+        
         return sb.append("}").toString();
     }
-
+    
     @Override
     public String toString() {
         return new StringBuilder().append("{val: ").append(this.val).append(", next_val: ").append(this.next.val).append("}").toString();

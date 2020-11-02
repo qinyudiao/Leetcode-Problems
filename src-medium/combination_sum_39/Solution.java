@@ -18,10 +18,10 @@ import java.util.List;
 //        1 <= target <= 500
 
 public class Solution {
-
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
-
+        
         int[][] testCasesCandidates = {{2, 3, 6, 7}, {2, 3, 5}, {2}, {1}, {1}}; // [[2, 2, 3], [7]],
                                                                                 // [[2, 2, 2, 2], [2,3,3], [3, 5]],
                                                                                 // [], [[1]], [[1, 1]]
@@ -30,11 +30,11 @@ public class Solution {
             System.out.println(solution.combinationSum(testCasesCandidates[i], testCasesTargets[i]));
         }
     }
-
+    
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         Arrays.sort(candidates);
         List<List<Integer>> validCombinations = new ArrayList<>();
-
+        
         int i = candidates.length - 1;
         while(i >= 0 && candidates[i] > target) {
             i--;
@@ -45,7 +45,7 @@ public class Solution {
         
         return validCombinations;
     }
-
+    
     public void findValidCombinations(int[] candidates, int i, int target, List<Integer> prevCombination, List<List<Integer>> validCombinations) {
         List<Integer> combination = new ArrayList<>();
         combination.addAll(prevCombination);
